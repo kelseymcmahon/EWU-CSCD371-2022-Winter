@@ -48,6 +48,13 @@ namespace Lecture1.Tests
             bool result = Person.Login(UserName, Password);
             Assert.IsFalse(result);
         }
+
+        [TestMethod]
+        public void Login_EnsureNotNull_Success()
+        {
+            UserName = null;
+            Assert.IsNull(UserName);
+        }
     }
 
 }

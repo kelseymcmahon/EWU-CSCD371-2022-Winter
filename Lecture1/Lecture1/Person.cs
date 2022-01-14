@@ -3,11 +3,16 @@
     public class Person
     {
         //declare valid usernames and passwords 
-        Dictionary<string
+
+        //This is called a tuple. when declaring a tuple, make sure to include a reference name for the data type
+        (string UserName, string Password)[] Credentials = new[]
+        {
+            ("kelseymc", "HelloWorld"),
+        };
+
         public bool Login(string userName, string password)
         {
-      
-            return password == "HelloWorld";
+            return (userName, password) == Credentials[0];
         }
     }
 }
