@@ -24,6 +24,7 @@ namespace PrincessBrideTrivia
         
         public static string GetPercentCorrect(int numberCorrectAnswers, int numberOfQuestions)
         {
+            //Bug fix, needed to add a cast of double type for the two ints
             double percentCorrect = (double)numberCorrectAnswers / (double)numberOfQuestions * 100;
             return (Math.Round(percentCorrect, 2)) + "%";
         }
@@ -90,6 +91,8 @@ namespace PrincessBrideTrivia
                 question.Answers[2] = answer3;
                 question.CorrectAnswerIndex = correctAnswerIndex;
 
+                //Bug fix, needed to add the information created for question
+                //to the questions[] array at index i
                 questions[i] = question;    
             }
             return questions;
