@@ -3,8 +3,6 @@
 
 public class Person
 {
-
-
     public Person(string firstName, string lastName) : 
         this($"{firstName} {lastName}") {}
 
@@ -17,6 +15,11 @@ public class Person
     private void Initialize(string name)
     {
         Name = name;
+    }
+
+    public string ToText()
+    {
+        return $"{nameof(Name)}: {Name}";
     }
 
     public int Age { get; set; }
