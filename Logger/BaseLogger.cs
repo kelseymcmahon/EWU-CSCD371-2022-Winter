@@ -3,7 +3,7 @@
     public abstract class BaseLogger
     {
         //Auto-Implemented property for name
-        private string Name { get; set; }
+        public string Name { get; set; }
 
         public BaseLogger(string name)
         {

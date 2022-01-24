@@ -1,21 +1,25 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Logger 
 {
-    //
+    //Create a FileLogger that derives from BaseLogger
     internal class FileLogger : BaseLogger
     {
-        public FileLogger(string filePath) 
+        private string FileName;
+
+        public FileLogger(string fileName)
         {
-
-
+            FileName = @"\" + fileName;
         }
 
         public override void Log(LogLevel logLevel, string message)
         {
-            throw new NotImplementedException();
+            string log = DateTime.Now.ToString() + " " + this.Name + " " + logLevel.ToString() + ": " + message;
+
+            File.AppendAllText(FileName, log);
         }
     }
 }
