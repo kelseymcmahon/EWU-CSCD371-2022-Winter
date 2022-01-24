@@ -12,7 +12,7 @@ namespace Logger
 
         public FileLogger(string fileName)
         {
-            FileName = @"\" + fileName;
+            FileName = fileName;
         }
 
         public override void Log(LogLevel logLevel, string message)

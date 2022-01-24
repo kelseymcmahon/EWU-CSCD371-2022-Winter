@@ -28,5 +28,20 @@ namespace Logger.Tests
 
         //check date time in log method
         //
+
+        public void Log_CheckCorrectDateTime()
+        {
+            //create the log file
+            BaseLogger? log = LogFactory.CreateLogger(filePath);
+
+            log?.Log(LogLevel.Error, message);
+
+            //need to check the line written on the file from calling the Log method
+            //Assert.IsInstanceOfType(log, typeof(string));
+
+            //delete log file after testing
+            File.Delete(filePath);
+
+        }
     }
 }
