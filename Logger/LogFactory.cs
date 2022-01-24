@@ -1,28 +1,27 @@
 ﻿namespace Logger
 {
 
-    public class LogFactory
+    public static class LogFactory
     {
-        //CreateLogger should probably have static functionality. Need to research.
-        public BaseLogger? CreateLogger(string className)
+        private static string? filePath = null;
+
+        public static BaseLogger? CreateLogger(string className)
         {
-            if (filepath is null)
+            if (filePath is null)
             {
                 return null;
             }
 
-            //Possibly need to rewrite FileLogger to delegate construction to BaseLogger.
-            //This would allow BaseLogger to take a className and FileLogger to take a filepath
-
-            return new BaseLogger(className);
+            BaseLogger logger = new FileLogger(filePath) { Name = className };
+            return logger;
         }
 
-        public void ConfigureFileLogger(string fp)
+        public static void ConfigureFileLogger(string fp)
         {
             if (fp is not null)
-            filepath = fp;
+                filePath = fp;
         }
 
-        private string? filepath = null;
+
     }
 }
