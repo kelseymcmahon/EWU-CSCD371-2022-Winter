@@ -10,7 +10,7 @@ namespace Logger.Tests
         public void Log_CreateMessageLogString()
         {
             string fileName = "test.txt";
-            LogFactory log = new LogFactory(fileName);
+            BaseLogger? log = LogFactory.CreateLogger(fileName);
             string message = "This is an error message";
 
             log.Log(LogLevel.Error, message);

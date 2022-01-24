@@ -6,7 +6,7 @@ using System.Text;
 namespace Logger 
 {
     //Create a FileLogger that derives from BaseLogger
-    internal class FileLogger : BaseLogger
+    public class FileLogger : BaseLogger
     {
         private string FileName;
 
