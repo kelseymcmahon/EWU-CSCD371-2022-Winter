@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.IO;
 
 namespace Logger.Tests
 {
@@ -6,38 +7,34 @@ namespace Logger.Tests
     public class FileLoggerTests
     {
 
-        string filePath = "test.txt";
+        string filePath = Path.GetTempPath() + "test.txt";
         string message = "This is an standard message";
 
         [TestMethod]
 
-        public void Log_CreateMessageLogString()
+        public void Log_CreateLogMessageString_NotNull()
         {
             //create the log file
             BaseLogger? log = LogFactory.CreateLogger(filePath);
 
             log?.Log(LogLevel.Error, message);
 
-            //need to check the line written on the file from calling the Log method
-            //Assert.IsInstanceOfType(log, typeof(string));
+            string logMessage = File.ReadAllText(filePath);
+
+            Assert.IsNotNull(logMessage);
 
             //delete log file after testing
-            File.Delete(filePath);
+            //File.Delete(filePath);
                 
         }
 
         //check date time in log method
-        //
-
-        public void Log_CheckCorrectDateTime()
+        public void Log_CheckDateTime_CorrectDateTime()
         {
             //create the log file
             BaseLogger? log = LogFactory.CreateLogger(filePath);
 
             log?.Log(LogLevel.Error, message);
-
-            //need to check the line written on the file from calling the Log method
-            //Assert.IsInstanceOfType(log, typeof(string));
 
             //delete log file after testing
             File.Delete(filePath);
