@@ -9,12 +9,13 @@ namespace Logger.Tests
 
         string filePath = "test.txt";
         string message = "This is an standard message";
-        string loggerName = "TestFileLogger";
+        BaseLogger? log;
 
         [TestInitialize]
         void TestInit()
         {
             LogFactory.ConfigureFileLogger(filePath);
+            log = LogFactory.CreateLogger(nameof(FileLoggerTests));
         }
 
         [TestCleanup]
@@ -28,9 +29,6 @@ namespace Logger.Tests
 
         public void Log_CreateLogMessageString_NotNull()
         {
-            LogFactory.ConfigureFileLogger(filePath);
-            //create the log file
-            BaseLogger? log = LogFactory.CreateLogger(loggerName);
 
             log?.Log(LogLevel.Error, message);
 
@@ -44,12 +42,9 @@ namespace Logger.Tests
         [TestMethod]
         public void Log_CheckLog_CorrectData()
         {
-            //create the log file
-            BaseLogger? log = LogFactory.CreateLogger(filePath);
 
             log?.Log(LogLevel.Error, message);
 
-            //delete log file after testing
             File.Delete(filePath);
 
         }
