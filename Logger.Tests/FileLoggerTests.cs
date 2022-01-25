@@ -9,27 +9,40 @@ namespace Logger.Tests
 
         string filePath = "test.txt";
         string message = "This is an standard message";
+        string loggerName = "TestFileLogger";
+
+        [TestInitialize]
+        void TestInit()
+        {
+            LogFactory.ConfigureFileLogger(filePath);
+        }
+
+        [TestCleanup]
+        void TestClean()
+        {
+            File.Delete(filePath);
+        }
+
 
         [TestMethod]
 
         public void Log_CreateLogMessageString_NotNull()
         {
+            LogFactory.ConfigureFileLogger(filePath);
             //create the log file
-            BaseLogger? log = LogFactory.CreateLogger(filePath);
+            BaseLogger? log = LogFactory.CreateLogger(loggerName);
 
             log?.Log(LogLevel.Error, message);
 
             string logMessage = File.ReadAllText(filePath);
 
             Assert.IsNotNull(logMessage);
-
-            //delete log file after testing
-            File.Delete(filePath);
                 
         }
 
         //check date time in log method
-        public void Log_CheckDateTime_CorrectDateTime()
+        [TestMethod]
+        public void Log_CheckLog_CorrectData()
         {
             //create the log file
             BaseLogger? log = LogFactory.CreateLogger(filePath);
