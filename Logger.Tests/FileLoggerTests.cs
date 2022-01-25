@@ -7,7 +7,7 @@ namespace Logger.Tests
     public class FileLoggerTests
     {
 
-        string filePath = Path.GetTempPath() + "test.txt";
+        string filePath = "test.txt";
         string message = "This is an standard message";
 
         [TestMethod]
@@ -24,7 +24,7 @@ namespace Logger.Tests
             Assert.IsNotNull(logMessage);
 
             //delete log file after testing
-            //File.Delete(filePath);
+            File.Delete(filePath);
                 
         }
 

@@ -8,7 +8,7 @@ namespace Logger
     //Create a FileLogger that derives from BaseLogger
     public class FileLogger : BaseLogger
     {
-        private string FileName;
+        public string FileName;
 
         public FileLogger(string fileName)
         {
