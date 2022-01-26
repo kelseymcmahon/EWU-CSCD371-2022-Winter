@@ -9,8 +9,7 @@ namespace Logger
             if (log == null)
                 throw new ArgumentNullException(nameof(log));
 
-            foreach (object arg in args)
-                message = message + " " + arg.ToString();
+            message = String.Format(message,args);
 
             log.Log(LogLevel.Error, message);
         }
@@ -20,8 +19,7 @@ namespace Logger
             if (log == null)
                 throw new ArgumentNullException(nameof(log));
 
-            foreach (object arg in args)
-                message = message + " " + arg.ToString();
+            message = String.Format(message, args);
 
             log.Log(LogLevel.Warning, message);
         }
@@ -31,8 +29,7 @@ namespace Logger
             if (log == null)
                 throw new ArgumentNullException(nameof(log));
 
-            foreach (object arg in args)
-                message = message + " " + arg.ToString();
+            message = String.Format(message, args);
 
             log.Log(LogLevel.Information, message);
         }
@@ -41,8 +38,7 @@ namespace Logger
             if (log == null)
                 throw new ArgumentNullException(nameof(log));
 
-            foreach (object arg in args)
-                message = message + " " + arg.ToString();
+            message = String.Format(message, args);
 
             log.Log(LogLevel.Debug, message);
         }

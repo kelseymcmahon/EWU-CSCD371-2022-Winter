@@ -26,7 +26,7 @@ namespace Logger.Tests
             // Assert
             Assert.AreEqual(1, logger.LoggedMessages.Count);
             Assert.AreEqual(LogLevel.Error, logger.LoggedMessages[0].LogLevel);
-            //Assert.AreEqual("Message 42", logger.LoggedMessages[0].Message);
+            Assert.AreEqual("Message 42", logger.LoggedMessages[0].Message);
         }
     }
 
