@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Logger.Tests
 {
@@ -27,6 +28,15 @@ namespace Logger.Tests
             Assert.AreEqual(1, logger.LoggedMessages.Count);
             Assert.AreEqual(LogLevel.Error, logger.LoggedMessages[0].LogLevel);
             Assert.AreEqual("Message 42", logger.LoggedMessages[0].Message);
+        }
+
+        [TestMethod]
+        public void Error_CheckMultipleArguments_Passes()
+        {
+            var logger = new TestLogger();
+            logger.Error("{0} {1} {2} {3}", "Test text", 22, true, "More text");
+
+            Assert.AreEqual("Test text 22 True More text", logger.LoggedMessages[0].Message);
         }
     }
 
