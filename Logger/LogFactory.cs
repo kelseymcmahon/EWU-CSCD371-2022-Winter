@@ -22,6 +22,11 @@
                 filePath = fp;
         }
 
+        public static void ResetConfiguration()
+        {
+            filePath = null;
+        }
+
 
     }
 }

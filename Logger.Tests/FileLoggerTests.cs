@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Text;
 using System;
+using System.Linq;
 
 namespace Logger.Tests
 {
@@ -47,7 +48,18 @@ namespace Logger.Tests
             Assert.IsTrue(DateTime.TryParse(data[0], out DateTime date));
             Assert.AreEqual<string>(data[1], nameof(FileLoggerTests));
             Assert.AreEqual<string>(data[2], LogLevel.Error.ToString());
-            Assert.AreEqual<string>(data[3], message);
+            Assert.AreEqual<string>(data[3], message+System.Environment.NewLine);
         }
+
+        [TestMethod]
+
+        public void Log_CheckLog_AppendsDataToNewLine()
+        {
+            log?.Log(LogLevel.Error, message);
+            log?.Log(LogLevel.Warning, message);
+
+            Assert.AreEqual(2, File.ReadLines(filePath).Count());
+        }
+
     }
 }
