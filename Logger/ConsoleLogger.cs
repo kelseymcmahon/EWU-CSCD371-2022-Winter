@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Logger
 {
-    internal class ConsoleLogger : BaseLogger
+    public class ConsoleLogger : BaseLogger
     {
         public override void Log(LogLevel logLevel, string message)
         {

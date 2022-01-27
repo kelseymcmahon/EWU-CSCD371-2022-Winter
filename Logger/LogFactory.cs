@@ -16,6 +16,13 @@
             return logger;
         }
 
+        public static BaseLogger? CreateConsoleLogger(string className){
+
+            BaseLogger logger = new ConsoleLogger() {Name = className};
+
+            return logger;
+        }
+
         public static void ConfigureFileLogger(string fp)
         {
             if (fp is not null)
