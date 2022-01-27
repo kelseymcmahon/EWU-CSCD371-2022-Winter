@@ -8,18 +8,18 @@ namespace Logger
     //Create a FileLogger that derives from BaseLogger
     public class FileLogger : BaseLogger
     {
-        public string FileName;
+        public string FilePath;
 
-        public FileLogger(string fileName)
+        public FileLogger(string filePath)
         {
-            FileName = fileName;
+            FilePath = filePath;
         }
 
         public override void Log(LogLevel logLevel, string message)
         {
             string log = DateTime.Now.ToString() + " | " + this.Name + " | " + logLevel.ToString() + " | " + message+System.Environment.NewLine;
 
-            File.AppendAllText(FileName, log);
+            File.AppendAllText(FilePath, log);
         }
     }
 }

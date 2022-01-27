@@ -7,11 +7,13 @@ namespace Logger.Tests
     public class LogFactoryTests
     {
         string filepath = "test.txt";
+
         [TestInitialize]
         public void TestInit()
         {
             LogFactory.ResetConfiguration();
         }
+
         [TestCleanup]
         public void TestClean()
         {
