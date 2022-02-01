@@ -15,6 +15,8 @@ namespace CanHazFunny
         public Jester(IJoke joke, IWriteJoke writeJoke)
         {
             //Check both objects for null
+            // is null
+            // ?? null coalecencing operator
             if (joke == null)
             {
                 throw new ArgumentNullException(nameof(Jester));
