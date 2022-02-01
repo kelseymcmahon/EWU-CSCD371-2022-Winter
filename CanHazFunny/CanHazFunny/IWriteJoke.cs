@@ -8,6 +8,6 @@ namespace CanHazFunny
 {
     public  interface IWriteJoke
     {
-        public void WriteJoke();
+        public void WriteJokeToConsole(string jokeText);
     }
 }

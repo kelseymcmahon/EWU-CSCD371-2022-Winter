@@ -6,16 +6,41 @@ using System.Threading.Tasks;
 
 namespace CanHazFunny
 {
-    public class Jester : IJokeService, IWriteJoke
+    public class Jester
     {
-        string IJokeService.GetJoke()
+        IJoke Joke;
+        IWriteJoke WriteJoke;
+
+        //include both IJoke and IWriteJoke as dependencies for Jester through the constructor 
+        public Jester(IJoke joke, IWriteJoke writeJoke)
         {
-            throw new NotImplementedException();
+            //Check both objects for null
+            if (joke == null)
+            {
+                throw new ArgumentNullException(nameof(Jester));
+            }
+
+            if (writeJoke == null)
+            {
+                throw new ArgumentNullException(nameof(Jester));
+            }
+            
+            Joke = joke;
+            WriteJoke = writeJoke;
+            
         }
 
-        void IWriteJoke.WriteJoke()
+        public void TellJoke()
         {
-            throw new NotImplementedException();
+            string jokeText = Joke.GetJoke();
+
+            while (jokeText.Contains("Chuck Norris"))
+            {
+                jokeText = Joke.GetJoke();
+            }
+
+            WriteJoke?.WriteJokeToConsole(jokeText);
         }
+
     }
 }
