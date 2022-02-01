@@ -29,10 +29,23 @@ namespace CanHazFunny.Tests
         public void WriteJokeToConsole_GetsJokeString_()
         {
             writeJokeService.WriteJokeToConsole(joke);
-            Assert.IsInstanceOfType(writeJokeService, IWriteJoke);
+            Assert.IsInstanceOfType(writeJokeService, typeof(IWriteJoke));
         }
 
         [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))]
+        public void WriteJokeToConsole_CheckParametersPassed_CorrectParameter()
+        {
+            
+            //var mocked = new Mock<IDoStuff>();
+
+            //var target = new ClassToTest(mocked.Object);
+            ///target.DoStuff();
+
+            //mocked.Verify(x => x.CallMyMethod(It.IsAny<string>());
+        }
+    }
+
+        //[TestMethod]
+        //[ExpectedException(typeof(InvalidOperationException))]
     }
 }

@@ -13,23 +13,9 @@ namespace CanHazFunny
 
         //include both IJoke and IWriteJoke as dependencies for Jester through the constructor 
         public Jester(IJoke joke, IWriteJoke writeJoke)
-        {
-            //Check both objects for null
-            // is null
-            // ?? null coalecencing operator
-            if (joke == null)
-            {
-                throw new ArgumentNullException(nameof(Jester));
-            }
-
-            if (writeJoke == null)
-            {
-                throw new ArgumentNullException(nameof(Jester));
-            }
-            
-            Joke = joke;
-            WriteJoke = writeJoke;
-            
+        {   
+            Joke = joke ?? throw new ArgumentNullException(nameof(Jester));
+            WriteJoke = writeJoke ?? throw new ArgumentNullException(nameof(Jester));
         }
 
         public void TellJoke()
