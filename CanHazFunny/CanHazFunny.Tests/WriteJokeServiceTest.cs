@@ -48,4 +48,3 @@ namespace CanHazFunny.Tests
         //[TestMethod]
         //[ExpectedException(typeof(InvalidOperationException))]
     }
-}

@@ -31,18 +31,6 @@ namespace CanHazFunny.Tests
             jester.TellJoke();
             Assert.IsFalse(stringWriter.ToString().Contains("Chuck Norris"));
         }
-        // check for implementation:
-        // IJoke Joke;
-        // IWriteJoke WriteJoke;
-
-        // constructor 
-        // make sure null is null
-
-        // constructor 
-        // is the constructor really taking in Ijoke variable
-        // or IWriteJoke writeJoke
-
-        // 
 
     }
 }
