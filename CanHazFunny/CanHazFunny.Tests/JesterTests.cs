@@ -8,7 +8,7 @@ namespace CanHazFunny.Tests
     [TestClass]
     public class JesterTests
     {
-        Jester jester;
+        Jester? jester;
         StringWriter stringWriter = new();
 
         [TestInitialize]
@@ -21,14 +21,14 @@ namespace CanHazFunny.Tests
         [TestMethod]
         public void TellJoke_GetsJoke_NotNull()
         {
-            jester.TellJoke();
+            jester?.TellJoke();
             Assert.IsNotNull(stringWriter.ToString());
         }
 
         [TestMethod]
         public void TellJoke_GetsJokeWithoutChuckNorris_JokeIsNorrisFree()
         {
-            jester.TellJoke();
+            jester?.TellJoke();
             Assert.IsFalse(stringWriter.ToString().Contains("Chuck Norris"));
         }
 

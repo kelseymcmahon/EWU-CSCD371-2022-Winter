@@ -11,7 +11,7 @@ namespace CanHazFunny
         IJoke Joke;
         IWriteJoke WriteJoke;
 
-        public Jester(IJoke joke, IWriteJoke writeJoke)
+        public Jester(IJoke? joke, IWriteJoke? writeJoke)
         {   
             Joke = joke ?? throw new ArgumentNullException(nameof(Jester));
             WriteJoke = writeJoke ?? throw new ArgumentNullException(nameof(Jester));

@@ -8,7 +8,7 @@ namespace CanHazFunny.Tests
     public class WriteJokeServiceTest
     {
         string joke = "Did you hear about the claustrophobic astronaut? He just wanted a bit more space.";
-        WriteJokeService writeJokeService;
+        WriteJokeService? writeJokeService;
         StringWriter stringWriter = new();
 
         [TestInitialize]
@@ -21,14 +21,14 @@ namespace CanHazFunny.Tests
         [TestMethod]
         public void WriteJokeToConsole_GetsJokeString_NotNull()
         {
-            writeJokeService.WriteJokeToConsole(joke);
+            writeJokeService?.WriteJokeToConsole(joke);
             Assert.IsNotNull(stringWriter.ToString());
         }
 
         [TestMethod]
         public void WriteJokeToConsole_GetsJokeString_()
         {
-            writeJokeService.WriteJokeToConsole(joke);
+            writeJokeService?.WriteJokeToConsole(joke);
             Assert.IsInstanceOfType(writeJokeService, typeof(IWriteJoke));
         }
     }
