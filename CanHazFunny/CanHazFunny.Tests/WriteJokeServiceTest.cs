@@ -22,7 +22,7 @@ namespace CanHazFunny.Tests
         public void WriteJokeToConsole_GetsJokeString_NotNull()
         {
             writeJokeService.WriteJokeToConsole(joke);
-            Assert.IsNotNull(stringWriter.ToString());        
+            Assert.IsNotNull(stringWriter.ToString());
         }
 
         [TestMethod]
@@ -31,20 +31,5 @@ namespace CanHazFunny.Tests
             writeJokeService.WriteJokeToConsole(joke);
             Assert.IsInstanceOfType(writeJokeService, typeof(IWriteJoke));
         }
-
-        [TestMethod]
-        public void WriteJokeToConsole_CheckParametersPassed_CorrectParameter()
-        {
-            
-            //var mocked = new Mock<IDoStuff>();
-
-            //var target = new ClassToTest(mocked.Object);
-            ///target.DoStuff();
-
-            //mocked.Verify(x => x.CallMyMethod(It.IsAny<string>());
-        }
     }
-
-        //[TestMethod]
-        //[ExpectedException(typeof(InvalidOperationException))]
-    }
+}
