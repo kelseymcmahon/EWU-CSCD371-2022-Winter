@@ -32,5 +32,12 @@ namespace CanHazFunny.Tests
             Assert.IsFalse(stringWriter.ToString().Contains("Chuck Norris"));
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void Jester_CheckParameters_NotNull()
+        {
+            jester = new Jester(null, null);
+        }
+
     }
 }
