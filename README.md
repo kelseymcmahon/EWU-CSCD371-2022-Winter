@@ -23,7 +23,7 @@ For this assignment do the following:
 - Create an implementation of the output interface that writes out the joke to the console. ✔
 - Implement the `Jester` class. It should take in both interfaces as dependencies. These dependencies should be null checked. ✔
 - The `Jester` class `TellJoke()` method should retrieve a joke from the `JokeService`. If the joke contains "Chuck Norris", skip it and get another. The joke should be written to the output dependency. ✔
-- Unit test the Jester class. Code coverage should be above 90% for this class. Moq will make this significantly easier. ✔❌
+- Unit test the Jester class. Code coverage should be above 90% for this class. Moq will make this significantly easier. ✔
 - Enable nullability in the .csproj files and ensure no errors or warnings: ✔
 
 ## Fundamentals
@@ -33,8 +33,8 @@ For this assignment do the following:
   - C# 10.0  ✔
   - and enabled .NET analyzers for both projects ✔
 - For this assignment, always use `Assert.AreEqual<T>()` (the generic version)  ❌✔
-- All of the above should be unit tested ❌✔
-- Choose simplicity over complexity ❌✔
+- All of the above should be unit tested ✔
+- Choose simplicity over complexity ✔
   
 ## Extra Credit
 - Unit test your implementation that writes the joke out to the screen. How hard could it be to unit test a single line method ;)?
