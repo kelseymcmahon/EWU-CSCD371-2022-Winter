@@ -29,6 +29,5 @@ namespace CanHazFunny
 
             WriteJoke?.WriteJokeToConsole(jokeText);
         }
-
     }
 }

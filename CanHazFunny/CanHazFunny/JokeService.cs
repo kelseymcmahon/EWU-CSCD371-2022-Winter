@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System.Net;
+using System.Net.Http;
 using System.Text.Json;
 
 namespace CanHazFunny
@@ -12,10 +13,5 @@ namespace CanHazFunny
             string joke = HttpClient.GetStringAsync("https://geek-jokes.sameerkumar.website/api").Result;
             return joke;
         }
-
-        //public string GetJSONJoke()
-        //{
-        //    string jokeJSON = 
-        //}
     }
 }

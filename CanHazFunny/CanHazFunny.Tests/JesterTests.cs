@@ -34,10 +34,16 @@ namespace CanHazFunny.Tests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void Jester_CheckParameters_NotNull()
+        public void Jester_CheckParameterJokeService_NotNull()
         {
-            jester = new Jester(null, null);
+            jester = new Jester(new JokeService(), null);
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void Jester_CheckParameterWriteJokeService_NotNull()
+        {
+            jester = new Jester(null, new WriteJokeService());
+        }
     }
 }
