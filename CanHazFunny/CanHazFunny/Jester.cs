@@ -11,7 +11,6 @@ namespace CanHazFunny
         IJoke Joke;
         IWriteJoke WriteJoke;
 
-        //include both IJoke and IWriteJoke as dependencies for Jester through the constructor 
         public Jester(IJoke joke, IWriteJoke writeJoke)
         {   
             Joke = joke ?? throw new ArgumentNullException(nameof(Jester));
