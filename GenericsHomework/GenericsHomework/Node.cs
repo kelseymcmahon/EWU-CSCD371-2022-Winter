@@ -8,12 +8,12 @@ namespace GenericsHomework;
 
 public class Node<TValue>
 {
-    TValue Value;
+    TValue? Value;
     private Node<TValue> Next;
 
     public Node(TValue value)
     {
-        Value = value;
+        Value = value ?? throw new ArgumentNullException(nameof(value));
     }
 
     public override string ToString()
