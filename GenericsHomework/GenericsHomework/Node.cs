@@ -15,7 +15,7 @@ public class Node<T>
 
     public Node(T value)
     {
-        Value = value;
+        Value = value ?? throw new ArgumentNullException($"{nameof(Node<T>)} must be given a non null value");
         Next = this;
     }
 

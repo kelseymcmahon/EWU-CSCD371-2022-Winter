@@ -22,5 +22,18 @@ public class Program
         list.PrintAll();
 
         Console.WriteLine($"List size: {list.size}");
+
+        Console.WriteLine($"4 exists: {list.Exists(4)}");
+
+        LinkedList<string> list2 = new LinkedList<string>();
+
+        list2.Append("Kelsey");
+        list2.Append("Leona");
+        list2.Append("Aaron");
+        list2.Append("Gray");
+
+        Console.WriteLine($"4 exists: {list2.Exists("4")}");
+
+        list2.Append("Kelsey");
     }
 }
