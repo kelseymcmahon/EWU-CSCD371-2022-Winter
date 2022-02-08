@@ -6,19 +6,27 @@ using System.Threading.Tasks;
 
 namespace GenericsHomework;
 
-public class Node<TValue>
+public class Node<T>
 {
-    TValue? Value;
-    private Node<TValue> Next;
+    public T Value { get; private set; }
 
-    public Node(TValue value)
+    //[DisallowNull]
+    public Node<T> Next { get; private set; }
+
+    public Node(T value)
     {
-        Value = value ?? throw new ArgumentNullException(nameof(value));
+        Value = value;
+        Next = this;
+    }
+
+    public void SetNext(Node<T> next)
+    {
+        Next = next;
     }
 
     public override string ToString()
     {
-        return Value.ToString();
+        return Value?.ToString()!;
     }
 }
 

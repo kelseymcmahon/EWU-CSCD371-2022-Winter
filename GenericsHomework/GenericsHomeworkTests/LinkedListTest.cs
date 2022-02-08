@@ -1,19 +1,12 @@
-using GenericsHomework;
+﻿using GenericsHomework;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
 namespace GenericsHomeworkTests;
 
 [TestClass]
-public class NodeTest
+public class LinkedListTest
 {
-    [TestMethod]
-    public void Node_CreateNode_NotNull()
-    {
-        Node<string> node = new("Test");
-        Assert.IsNotNull(node);
-    }
-
     [TestMethod]
     [ExpectedException(typeof(ArgumentNullException))]
     public void Node_CreateNode_ThrowsNullException()
