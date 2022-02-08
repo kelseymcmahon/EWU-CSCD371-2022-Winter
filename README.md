@@ -39,10 +39,10 @@ Do one of the following two options (or both if you want extra extra credit) :)
 
 ## Fundamentals
 - Ensure you enable:
-  - nullable reference types is enabled  ❌✔
-  - net6 targetted  ❌✔
-  - C# 10.0  ❌✔
-  - and enabled .NET analyzers for both projects ❌✔
+  - nullable reference types is enabled  ✔
+  - net6 targetted  ✔
+  - C# 10.0  ✔
+  - and enabled .NET analyzers for both projects ✔
 - For this assignment, always use `Assert.AreEqual<T>()` (the generic version)  ❌✔
 - All of the above should be unit tested ❌✔
 - Choose simplicity over complexity ❌✔
