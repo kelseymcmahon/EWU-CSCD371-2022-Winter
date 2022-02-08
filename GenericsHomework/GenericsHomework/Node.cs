@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,9 +9,10 @@ namespace GenericsHomework;
 
 public class Node<T>
 {
+    [DisallowNull]
     public T Value { get; private set; }
 
-    //[DisallowNull]
+    [DisallowNull]
     public Node<T> Next { get; private set; }
 
     public Node(T value)
@@ -24,9 +26,11 @@ public class Node<T>
         Next = next;
     }
 
-    public override string ToString()
+    public override string? ToString()
     {
-        return Value?.ToString()!;
+        if(Value == null) { throw new ArgumentNullException($"{nameof(Value)} can't be null."); }
+
+        return Value?.ToString();
     }
 }
 

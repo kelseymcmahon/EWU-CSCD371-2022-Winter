@@ -45,7 +45,7 @@ public class LinkedList<T>
 
     public bool Exists(T value)
     {
-        Node<T> current = Head!.Next;
+        Node<T> current = Head.Next;
 
         while (current != Head)
         {
