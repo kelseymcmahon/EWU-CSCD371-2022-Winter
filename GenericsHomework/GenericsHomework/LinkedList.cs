@@ -37,7 +37,7 @@ public class LinkedList<T>
 
     public bool Exists(T value)
     {
-        if(Head == null)
+        if(Head == null || Head.Next == null)
         {
             throw new ArgumentNullException($"{nameof(Exists)} method has a null head node");
         }
@@ -46,7 +46,7 @@ public class LinkedList<T>
 
         while (current != Head)
         {
-            if(current.Value.Equals(value))
+            if(current.Value!.Equals(value))
             {
                 return true;
             }
@@ -73,6 +73,23 @@ public class LinkedList<T>
             Console.WriteLine(current.ToString());
             current = current.Next;
         }
+    }
+
+    public override string ToString()
+    {
+        if (Head == null) { throw new ArgumentNullException($"{nameof(Head)} can't be null."); }
+
+        StringBuilder? list = new();
+        Node<T> current = Head.Next;
+
+
+        while (current != Head)
+        {
+            list.Append(current.ToString());
+            current = current.Next;
+        }
+
+        return list.ToString();
     }
 }
 

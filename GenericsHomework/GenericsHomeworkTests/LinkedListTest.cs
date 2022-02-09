@@ -7,17 +7,16 @@ namespace GenericsHomeworkTests;
 [TestClass]
 public class LinkedListTest
 {
-    [TestInitialize]
-    public void TestInit()
-    {
-        LinkedList<int> intList = new LinkedList<int>();
-        LinkedList<string> stringList = new LinkedList<string>();
-    }
+    LinkedList<int> intList = new LinkedList<int>();
+    LinkedList<string> stringList = new LinkedList<string>();
 
     [TestMethod]
     public void Append_AddsNewNode()
     {
+        intList.Append(1);
 
+        Assert.AreEqual<int>(1, intList.Size);
+        Assert.AreEqual<int>(intList.Head.Value, 1);
     }
 
     [TestMethod]
@@ -27,21 +26,15 @@ public class LinkedListTest
     }
 
     [TestMethod]
-    public void Append_AddsNewNode()
-    {
-
-    }
-
-    [TestMethod]
-    public void Append_AddsNewNode()
+    public void Clear_AddsNewNode()
     {
 
     }
 
     [TestMethod]
     [ExpectedException(typeof(ArgumentNullException))]
-    public void Node_CreateNode_ThrowsNullException()
+    public void Append_NullValue_ThrowsException()
     {
-        //Node<string> node = new(null);
+        stringList.Append(null!);
     }
 }
