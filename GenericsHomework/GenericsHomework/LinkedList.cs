@@ -18,8 +18,6 @@ public class LinkedList<T>
 
     public void Append(T value)
     {
-        
-
         Node<T> newNode = new Node<T>(value) ?? throw new ArgumentNullException($"{nameof(Append)} can't add a null value");
 
         if(Size == 0 || Head == null)
@@ -48,7 +46,7 @@ public class LinkedList<T>
 
         while (current != Head)
         {
-            if(current.Value!.Equals(value))
+            if(current.Value.Equals(value))
             {
                 return true;
             }
@@ -60,6 +58,7 @@ public class LinkedList<T>
 
     public void Clear()
     {
+        if(Size == 0) { return; }
         Head?.SetNext(Head);
         Size = 1;
     }
