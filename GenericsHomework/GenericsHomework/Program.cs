@@ -29,6 +29,7 @@ public class Program
         list2.Append("Leona");
         list2.Append("Aaron");
         list2.Append("Gray");
+        list2.Append("Kelsey");
 
         Console.WriteLine($"4 exists: {list2.Exists("4")}");
 
@@ -42,6 +43,6 @@ public class Program
 
         Console.WriteLine($"List 2 size: {list2.Size}");
 
-        //list2.Append("Kelsey");
+        
     }
 }

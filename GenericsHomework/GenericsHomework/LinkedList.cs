@@ -18,18 +18,19 @@ public class LinkedList<T>
 
     public void Append(T value)
     {
-        //if (Exists(value)) { throw new ArgumentException("node already exists!"); }
+        
 
         Node<T> newNode = new Node<T>(value) ?? throw new ArgumentNullException($"{nameof(Append)} can't add a null value");
 
-        if(Size == 0)
+        if(Size == 0 || Head == null)
         {
             Head = newNode;
         }
 
         else
         {
-            newNode.SetNext(Head!.Next);
+            if (Exists(value)) { throw new ArgumentException("Node already exists!"); }
+            newNode.SetNext(Head.Next);
             Head.SetNext(newNode);
         }
 
@@ -38,7 +39,12 @@ public class LinkedList<T>
 
     public bool Exists(T value)
     {
-        Node<T> current = Head?.Next ?? throw new ArgumentNullException($"{nameof(Exists)} method has a null head node");
+        if(Head == null)
+        {
+            throw new ArgumentNullException($"{nameof(Exists)} method has a null head node");
+        }
+
+        Node<T> current = Head.Next;
 
         while (current != Head)
         {
