@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace GenericsHomework;
 
@@ -21,7 +19,7 @@ public class Program
 
         list.PrintAll();
 
-        Console.WriteLine($"List size: {list.size}");
+        Console.WriteLine($"List size: {list.Size}");
 
         Console.WriteLine($"4 exists: {list.Exists(4)}");
 
@@ -34,6 +32,16 @@ public class Program
 
         Console.WriteLine($"4 exists: {list2.Exists("4")}");
 
-        list2.Append("Kelsey");
+        Console.WriteLine("List 2:");
+        list2.PrintAll();
+
+        list2.Clear();
+
+        Console.WriteLine("List 2 after clear:");
+        list2.PrintAll();
+
+        Console.WriteLine($"List 2 size: {list2.Size}");
+
+        //list2.Append("Kelsey");
     }
 }

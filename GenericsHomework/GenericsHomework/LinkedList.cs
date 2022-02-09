@@ -1,30 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace GenericsHomework;
 
 public class LinkedList<T>
 {
     public Node<T>? Head;
-    public int size { get; set; }
+    public int Size { get; set; }
 
     public LinkedList()
     {
-        size = 0;
+        Size = 0;
         Head = null;
     }
 
     public void Append(T value)
     {
-        if (Exists(value)) { throw new ArgumentException("node already exists!"); }
+        //if (Exists(value)) { throw new ArgumentException("node already exists!"); }
 
         Node<T> newNode = new Node<T>(value) ?? throw new ArgumentNullException($"{nameof(Append)} can't add a null value");
 
-        if(size == 0)
+        if(Size == 0)
         {
             Head = newNode;
         }
@@ -35,17 +33,12 @@ public class LinkedList<T>
             Head.SetNext(newNode);
         }
 
-        size++;
-    }
-
-    public void Clear(Node<T> node)
-    {
-        Node<T> current = node;
+        Size++;
     }
 
     public bool Exists(T value)
     {
-        Node<T> current = Head.Next;
+        Node<T> current = Head?.Next ?? throw new ArgumentNullException($"{nameof(Exists)} method has a null head node");
 
         while (current != Head)
         {
@@ -57,6 +50,12 @@ public class LinkedList<T>
         }
 
         return false;
+    }
+
+    public void Clear()
+    {
+        Head?.SetNext(Head);
+        Size = 1;
     }
 
     public void PrintAll()
