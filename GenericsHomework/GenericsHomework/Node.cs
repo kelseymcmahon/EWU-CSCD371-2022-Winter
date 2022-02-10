@@ -5,30 +5,61 @@ using System.Text;
 
 namespace GenericsHomework;
 
-public class Node<T>
+public class Node<T> where T : notnull
 {
     [DisallowNull]
-    public T Value { get; private set; }
-
-    [DisallowNull]
     public Node<T> Next { get; private set; }
+    public T Value { get; private set; }
 
     public Node(T value)
     {
-        Value = value ?? throw new ArgumentNullException($"{nameof(Node<T>)} must be given a non null value");
+        if (value is null) throw new ArgumentNullException("value cant be null");
+        Value = value;
         Next = this;
     }
 
-    public void SetNext(Node<T> next)
+    public void Append(T value)
     {
-        Next = next;
+        if (Exists(value))
+        {
+            throw new InvalidOperationException("Can't append duplicate values");
+        }
+        Node<T> newNode = new(value);
+        newNode.Next = this.Next;
+        this.Next = newNode;
     }
 
-    public override string? ToString()
+    /*  This is sufficient for all other nodes to be garbage collected, assuming  
+     *  they are not pointed to by any other parts of the user's program.
+     *  The cleared nodes point to one another, and the last in the list will point to
+     *  the retained node, but assuming no other references, they are inaccessable and
+     *  will be deleted from memory by the garbage collector.
+     */
+    public Node<T> Clear()
     {
-        if(Value == null) { throw new ArgumentNullException($"{nameof(Value)} can't be null."); }
-
-        return Value?.ToString();
+        Next = this;
+        return this;
     }
+
+    public bool Exists([DisallowNull] T value)
+    {
+        if (this.Value.Equals(value)) return true;
+        else if (this.Next == this) return false; //this is not of the queried type and there are no other nodes in the list
+        Node<T> cursor = this.Next;
+        while (cursor != this)
+        {
+            if (cursor.Value.Equals(value)) return true;
+            cursor = cursor.Next;
+        }
+        return false;
+    }
+
+    public override string ToString()
+    {
+        string? value = Value.ToString();
+        if (value is null) throw new ArgumentNullException("Node value is null");
+        return value;
+    }
+
 }
 
