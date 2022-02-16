@@ -10,8 +10,16 @@ namespace Assignment
         {
             get 
             { 
-                string[] lines = System.IO.File.ReadAllLines(@"People.csv");
-                return lines; 
+                string[] lines = System.IO.File.ReadAllLines("People.csv");
+
+                List<string> list = new();
+
+                for(int i = 1; 1 < lines.Length; i++)
+                {
+                    list.Add(lines[i]);
+                }
+
+                return list; 
             }
         }
 

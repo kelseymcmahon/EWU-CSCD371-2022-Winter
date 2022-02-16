@@ -12,9 +12,12 @@ public class SampleDataTest
     [TestMethod]
     public void CvsRows_GetData_Success()
     {
-        SampleData sample = new();
+        SampleData data = new();
 
-        sample.CsvRows.GetEnumerator().ToString();
+        foreach (string item in data.CsvRows)
+        {
+            Assert.IsNotNull(item);
+        }
     }
 }
 
