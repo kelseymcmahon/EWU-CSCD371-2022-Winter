@@ -50,9 +50,9 @@ Recommended But **Not** Required (in order of priority)
 
 2. Implement `IEnumerable<string> GetUniqueSortedListOfStatesGivenCsvRows()` to return a **sorted**, **unique** list of states. ❌✔
 
-   - Use `ISampleData.CsvRows` for your data source. ❌✔
-   - Don't forget the list should be unique. ❌✔
-   - Sort the list alphabetically. ❌✔
+   - Use `ISampleData.CsvRows` for your data source. ✔
+   - Don't forget the list should be unique. ✔
+   - Sort the list alphabetically. ✔
    - Include a test that leverages a hardcoded list of Spokane-based addresses. ❌✔
    - Include a test that uses LINQ to verify the data is sorted correctly (do not use a hardcoded list). ❌✔
 
