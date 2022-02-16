@@ -31,5 +31,17 @@ public class SampleDataTest
             Assert.IsNotNull(item);
         }
     }
+
+    [TestMethod]
+    public void GetUniqueSortedListOfStatesGivenCsvRows_GetCorrectData_Success()
+    {
+        SampleData data = new();
+
+        foreach (string item in data.GetUniqueSortedListOfStatesGivenCsvRows())
+        {
+            Console.WriteLine(item);
+            Assert.IsNotNull(item);
+        }
+    }
 }
 

@@ -16,9 +16,17 @@ namespace Assignment
         // 2.
         public IEnumerable<string> GetUniqueSortedListOfStatesGivenCsvRows()
         {
-            //IEnumerable<string>
-            //CsvRows;
-            return CsvRows;
+            //Create the query
+            var stateQuery =
+                from line in CsvRows
+                let state = line.Split(',')
+                orderby state[6]
+                select state[6];
+
+            //Execute the query
+            var stateList = stateQuery.Distinct().ToList();    
+
+            return stateList;
         }
 
         // 3.
