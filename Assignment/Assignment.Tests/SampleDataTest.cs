@@ -16,6 +16,18 @@ public class SampleDataTest
 
         foreach (string item in data.CsvRows)
         {
+            Console.WriteLine(item);
+            Assert.IsNotNull(item);
+        }
+    }
+
+    [TestMethod]
+    public void CvsRows_GetCorrectData_Success()
+    {
+        SampleData data = new();
+
+        foreach (string item in data.CsvRows)
+        {
             Assert.IsNotNull(item);
         }
     }

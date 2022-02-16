@@ -14,7 +14,7 @@ namespace Assignment
 
                 List<string> list = new();
 
-                for(int i = 1; 1 < lines.Length; i++)
+                for(int i = 1; i < lines.Length; i++)
                 {
                     list.Add(lines[i]);
                 }
