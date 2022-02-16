@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace Assignment
 {
@@ -8,24 +10,16 @@ namespace Assignment
         // 1.
         public IEnumerable<string> CsvRows
         {
-            get 
-            { 
-                string[] lines = System.IO.File.ReadAllLines("People.csv");
-
-                List<string> list = new();
-
-                for(int i = 1; i < lines.Length; i++)
-                {
-                    list.Add(lines[i]);
-                }
-
-                return list; 
-            }
+            get { return File.ReadAllLines("People.csv").Skip(1).ToList(); }
         }
 
         // 2.
-        public IEnumerable<string> GetUniqueSortedListOfStatesGivenCsvRows() 
-            => throw new NotImplementedException();
+        public IEnumerable<string> GetUniqueSortedListOfStatesGivenCsvRows()
+        {
+            //IEnumerable<string>
+            //CsvRows;
+            return CsvRows;
+        }
 
         // 3.
         public string GetAggregateSortedListOfStatesUsingCsvRows()
