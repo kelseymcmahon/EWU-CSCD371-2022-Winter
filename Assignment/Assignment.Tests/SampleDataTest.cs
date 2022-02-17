@@ -53,5 +53,21 @@ public class SampleDataTest
         Assert.IsNotNull(data.GetAggregateSortedListOfStatesUsingCsvRows());
         Assert.IsInstanceOfType(data.GetAggregateSortedListOfStatesUsingCsvRows(), typeof(string));
     }
+
+    [TestMethod]
+    public void People_GetCorrectData_Success()
+    {
+        SampleData data = new();
+        Console.WriteLine("test");
+
+        foreach (Person person in data.People)
+        {
+            //Console.WriteLine(person.ToString());
+            Console.WriteLine(person.FirstName);
+            Console.WriteLine("test");
+            Assert.IsNotNull(person.ToString());   
+        }
+    }
+
 }
 

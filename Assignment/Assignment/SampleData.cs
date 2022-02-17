@@ -42,7 +42,29 @@ namespace Assignment
         }
 
         // 4.
-        public IEnumerable<IPerson> People => throw new NotImplementedException();
+        public IEnumerable<IPerson> People
+        {
+            get
+            {
+                IEnumerable<IPerson> list = new List<IPerson>();
+
+                foreach (string line in CsvRows)
+                {
+                    string[] personInfo = line.Split(',');
+
+                    string firstName = personInfo[1];
+                    string lastName = personInfo[2];
+                    string emailAddress = personInfo[3];
+
+                    Address address = new(personInfo[4], personInfo[5], personInfo[6], personInfo[7]);
+
+                    Person person = new(firstName, lastName, address, emailAddress);
+
+                    list.Append(person);
+                }
+                return list;
+            }
+        }
 
         // 5.
         public IEnumerable<(string FirstName, string LastName)> FilterByEmailAddress(
