@@ -43,5 +43,15 @@ public class SampleDataTest
             Assert.IsNotNull(item);
         }
     }
+
+   [TestMethod]
+    public void GetAggregateSortedListOfStatesUsingCsvRows_GetCorrectData_Success()
+    {
+        SampleData data = new();
+
+        Console.WriteLine(data.GetAggregateSortedListOfStatesUsingCsvRows());
+        Assert.IsNotNull(data.GetAggregateSortedListOfStatesUsingCsvRows());
+        Assert.IsInstanceOfType(data.GetAggregateSortedListOfStatesUsingCsvRows(), typeof(string));
+    }
 }
 

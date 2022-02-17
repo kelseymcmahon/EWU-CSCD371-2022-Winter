@@ -31,7 +31,15 @@ namespace Assignment
 
         // 3.
         public string GetAggregateSortedListOfStatesUsingCsvRows()
-            => throw new NotImplementedException();
+        {
+            // retrieve an array of all the state names.
+            string[] output = GetUniqueSortedListOfStatesGivenCsvRows().ToArray();
+
+            // combine the array into a single string
+            string str = string.Join(", ", output);
+
+            return str;
+        }
 
         // 4.
         public IEnumerable<IPerson> People => throw new NotImplementedException();
