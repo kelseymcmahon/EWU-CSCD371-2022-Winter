@@ -58,13 +58,11 @@ public class SampleDataTest
     public void People_GetCorrectData_Success()
     {
         SampleData data = new();
-        Console.WriteLine("test");
 
         foreach (Person person in data.People)
         {
             //Console.WriteLine(person.ToString());
-            Console.WriteLine(person.FirstName);
-            Console.WriteLine("test");
+            Console.WriteLine(person.ToString());
             Assert.IsNotNull(person.ToString());   
         }
     }

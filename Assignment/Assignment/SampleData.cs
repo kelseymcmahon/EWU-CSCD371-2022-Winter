@@ -48,21 +48,18 @@ namespace Assignment
             {
                 IEnumerable<IPerson> list = new List<IPerson>();
 
-                foreach (string line in CsvRows)
-                {
-                    string[] personInfo = line.Split(',');
+                //Create the query
+                IEnumerable<IPerson> peopleQuery =
+                    from line in CsvRows
+                    let peopleInfo = line.Split(',')
+                    select new Person(peopleInfo[1], 
+                                      peopleInfo[2],
+                                      new Address(peopleInfo[4], peopleInfo[5], peopleInfo[6], peopleInfo[7]),
+                                      peopleInfo[3]);
+                    
+                List<IPerson> people = peopleQuery.ToList();
 
-                    string firstName = personInfo[1];
-                    string lastName = personInfo[2];
-                    string emailAddress = personInfo[3];
-
-                    Address address = new(personInfo[4], personInfo[5], personInfo[6], personInfo[7]);
-
-                    Person person = new(firstName, lastName, address, emailAddress);
-
-                    list.Append(person);
-                }
-                return list;
+                return people;
             }
         }
 
