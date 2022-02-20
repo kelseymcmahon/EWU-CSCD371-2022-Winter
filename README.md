@@ -56,7 +56,7 @@ Recommended But **Not** Required (in order of priority)
    - Include a test that leverages a hardcoded list of Spokane-based addresses. ❌✔
    - Include a test that uses LINQ to verify the data is sorted correctly (do not use a hardcoded list). ❌✔
 
-3. Implement `ISampleData.GetAggregateSortedListOfStatesUsingCsvRows()` to return a `string` that contains a **unique**, comma separated list of states. ❌✔
+3. Implement `ISampleData.GetAggregateSortedListOfStatesUsingCsvRows()` to return a `string` that contains a **unique**, comma separated list of states. ✔
 
    - Use `ISampleData.GetUniqueSortedListOfStatesGivenCsvRows()` for your data source. ✔
    - Consider "selecting" only the states and calling `ToArray()` to retrieve an array of all the state names. ✔
