@@ -9,46 +9,55 @@ namespace Assignment.Tests;
 [TestClass]
 public class SampleDataTest
 {
+    IEnumerator<string>? stringEnumerator;
+    IEnumerator<IPerson>? personEnumerator;
+    SampleData data = new();
+
     [TestMethod]
     public void CvsRows_GetData_Success()
     {
-        SampleData data = new();
+        stringEnumerator = data.CsvRows.GetEnumerator();
+        string getData;
 
-        foreach (string item in data.CsvRows)
+        while (stringEnumerator.MoveNext())
         {
-            Console.WriteLine(item);
-            Assert.IsNotNull(item);
+            getData = stringEnumerator.Current;
+            Console.WriteLine(getData);
+            Assert.IsNotNull(getData);
         }
     }
 
     [TestMethod]
     public void CvsRows_GetCorrectData_Success()
     {
-        SampleData data = new();
+        stringEnumerator = data.CsvRows.GetEnumerator();
+        string getData;
 
-        foreach (string item in data.CsvRows)
+        while (stringEnumerator.MoveNext())
         {
-            Assert.IsNotNull(item);
+            getData = stringEnumerator.Current;
+            Console.WriteLine(getData);
+            Assert.IsNotNull(getData);
         }
     }
 
     [TestMethod]
     public void GetUniqueSortedListOfStatesGivenCsvRows_GetCorrectData_Success()
     {
-        SampleData data = new();
+        stringEnumerator = data.CsvRows.GetEnumerator();
+        string state;
 
-        foreach (string item in data.GetUniqueSortedListOfStatesGivenCsvRows())
+        while(stringEnumerator.MoveNext())
         {
-            Console.WriteLine(item);
-            Assert.IsNotNull(item);
+            state = stringEnumerator.Current;
+            Console.WriteLine(state);
+            Assert.IsNotNull(state);
         }
     }
 
    [TestMethod]
     public void GetAggregateSortedListOfStatesUsingCsvRows_GetCorrectData_Success()
     {
-        SampleData data = new();
-
         Console.WriteLine(data.GetAggregateSortedListOfStatesUsingCsvRows());
         Assert.IsNotNull(data.GetAggregateSortedListOfStatesUsingCsvRows());
         Assert.IsInstanceOfType(data.GetAggregateSortedListOfStatesUsingCsvRows(), typeof(string));
@@ -57,15 +66,25 @@ public class SampleDataTest
     [TestMethod]
     public void People_GetCorrectData_Success()
     {
-        SampleData data = new();
+        personEnumerator = data.People.GetEnumerator();
+        IPerson getPerson;
 
-        foreach (Person person in data.People)
+        while (personEnumerator.MoveNext())
         {
-            //Console.WriteLine(person.ToString());
-            Console.WriteLine(person.ToString());
-            Assert.IsNotNull(person.ToString());   
+            getPerson = personEnumerator.Current;
+            Console.WriteLine(getPerson.ToString());
+            Assert.IsNotNull(getPerson);
         }
     }
 
+    [TestMethod]
+    public void FilterByEmailAddress_Success()
+    {
+        //SampleData data = new();
+        //IPerson person;
+        //Predicate<string> = 
+        //data.FilterByEmailAddress()
+        //FilterByEmailAddress(Func < IPerson, Boolean > exists, person);
+    }
 }
 

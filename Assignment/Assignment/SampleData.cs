@@ -8,16 +8,13 @@ namespace Assignment
     public class SampleData : ISampleData
     {
         // 1.
-        public IEnumerable<string> CsvRows
-        {
-            get { return File.ReadAllLines("People.csv").Skip(1).ToList(); }
-        }
+        public IEnumerable<string> CsvRows { get => File.ReadAllLines("People.csv").Skip(1).ToList(); }
 
         // 2.
         public IEnumerable<string> GetUniqueSortedListOfStatesGivenCsvRows()
         {
             //Create the query
-            var stateQuery =
+            IEnumerable<string> stateQuery =
                 from line in CsvRows
                 let state = line.Split(',')
                 orderby state[6]
@@ -52,11 +49,13 @@ namespace Assignment
                 IEnumerable<IPerson> peopleQuery =
                     from line in CsvRows
                     let peopleInfo = line.Split(',')
+                    orderby peopleInfo[5], peopleInfo[6], peopleInfo[7]
                     select new Person(peopleInfo[1], 
                                       peopleInfo[2],
-                                      new Address(peopleInfo[4], peopleInfo[5], peopleInfo[6], peopleInfo[7]),
+                                      new Address(peopleInfo[5], peopleInfo[4], peopleInfo[6], peopleInfo[7]),
                                       peopleInfo[3]);
-                    
+                
+                //Execute the query
                 List<IPerson> people = peopleQuery.ToList();
 
                 return people;
@@ -65,7 +64,17 @@ namespace Assignment
 
         // 5.
         public IEnumerable<(string FirstName, string LastName)> FilterByEmailAddress(
-            Predicate<string> filter) => throw new NotImplementedException();
+            Predicate<string> filter, IPerson person)
+        {
+            //Create the query
+            IEnumerable<IPerson> emailFilterQuery =
+                from Person in People
+                where filter(Person.FirstName)
+                select (Person, $"{Person.FirstName} {Person.LastName}");
+
+            //Execute the query
+            return emailFilterQuery;
+        }
 
         // 6.
         public string GetAggregateListOfStatesGivenPeopleCollection(
