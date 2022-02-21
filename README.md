@@ -56,17 +56,17 @@ Recommended But **Not** Required (in order of priority)
    - Include a test that leverages a hardcoded list of Spokane-based addresses. ❌✔
    - Include a test that uses LINQ to verify the data is sorted correctly (do not use a hardcoded list). ❌✔
 
-3. Implement `ISampleData.GetAggregateSortedListOfStatesUsingCsvRows()` to return a `string` that contains a **unique**, comma separated list of states. ❌✔
+3. Implement `ISampleData.GetAggregateSortedListOfStatesUsingCsvRows()` to return a `string` that contains a **unique**, comma separated list of states. ✔
 
-   - Use `ISampleData.GetUniqueSortedListOfStatesGivenCsvRows()` for your data source. ❌✔
-   - Consider "selecting" only the states and calling `ToArray()` to retrieve an array of all the state names. ❌✔
-   - Given the array, consider using `string.Join` to combine the list into a single string. ❌✔
+   - Use `ISampleData.GetUniqueSortedListOfStatesGivenCsvRows()` for your data source. ✔
+   - Consider "selecting" only the states and calling `ToArray()` to retrieve an array of all the state names. ✔
+   - Given the array, consider using `string.Join` to combine the list into a single string. ✔
 
 4. Implement the `ISampleData.People` property to return all the items in `People.csv` as `Person` objects ❌✔
 
-   - Use `ISampleData.CsvRows` as the source of the data. ❌✔
+   - Use `ISampleData.CsvRows` as the source of the data. ✔
    - Sort the list by State, City, Zip. (Sort the addresses first then select). ❌✔
-   - Be sure that `Person.Address` is also populated. ❌✔
+   - Be sure that `Person.Address` is also populated. ✔
    - Adding null validation to all the `Person` and `Address` properties is **optional**.
    - Consider using `ISampleData.CsvRows` in your test to verify your results. ❌✔
 
