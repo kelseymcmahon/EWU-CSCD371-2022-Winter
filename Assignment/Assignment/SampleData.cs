@@ -39,6 +39,7 @@ namespace Assignment
         }
 
         // 4.
+        // Sort the list by State, City, Zip. (Sort the addresses first then select).
         public IEnumerable<IPerson> People
         {
             get
