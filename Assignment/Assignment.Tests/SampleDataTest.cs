@@ -97,5 +97,12 @@ public class SampleDataTest
             Assert.AreEqual<string>("(Fayette, Dougherty)", personInfo.ToString());
         }
     }
+
+    [TestMethod]
+    public void GetAggregateListOfStatesGivenPeopleCollection__GetCorrectData_Success()
+    {
+        Console.WriteLine(data.GetAggregateListOfStatesGivenPeopleCollection(data.People));
+    }
 }
+
 

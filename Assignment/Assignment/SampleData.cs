@@ -78,6 +78,25 @@ namespace Assignment
 
         // 6.
         public string GetAggregateListOfStatesGivenPeopleCollection(
-            IEnumerable<IPerson> people) => throw new NotImplementedException();
+            IEnumerable<IPerson> people)
+        {
+            //Create the query
+            IEnumerable<string>? personFilterQuery =
+                from personInfo in People
+                select personInfo.Address.State;
+
+            IEnumerable<string> personlist = personFilterQuery.Distinct().ToList().ToArray();
+
+            // string str = string.Join(", ", personlist);
+
+            //people.Aggregate(people.Select(people => str));
+
+            //where filter(personInfo.EmailAddress)
+            //select (personInfo.FirstName, personInfo.LastName);
+
+            var str = personlist.Aggregate((s1, s2) => s1 + ", " + s2);
+
+            return "string";
+        }
     }
 }
