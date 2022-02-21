@@ -23,5 +23,14 @@ namespace Assignment
             Next = NewNode;
             NewNode.Next = temp;
         }
-    }
+
+        public IEnumerable<T> NodeList
+        {
+            get { return this;}
+        }
+
+        public IEnumerable<T> ChildItems(int maximum)
+        {
+
+        }
 }
