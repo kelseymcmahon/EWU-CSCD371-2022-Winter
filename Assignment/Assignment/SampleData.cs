@@ -97,7 +97,7 @@ namespace Assignment
 
             var str = personlist.Aggregate((s1, s2) => s1 + ", " + s2);
 
-            return "string";
+            return str;
         }
     }
 }
