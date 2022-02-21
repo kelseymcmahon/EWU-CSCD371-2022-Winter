@@ -43,8 +43,6 @@ namespace Assignment
         {
             get
             {
-                IEnumerable<IPerson> list = new List<IPerson>();
-
                 //Create the query
                 IEnumerable<IPerson> peopleQuery =
                     from line in CsvRows
@@ -64,16 +62,18 @@ namespace Assignment
 
         // 5.
         public IEnumerable<(string FirstName, string LastName)> FilterByEmailAddress(
-            Predicate<string> filter, IPerson person)
+            Predicate<string> filter)
         {
             //Create the query
-            IEnumerable<IPerson> emailFilterQuery =
-                from Person in People
-                where filter(Person.FirstName)
-                select (Person, $"{Person.FirstName} {Person.LastName}");
+            IEnumerable<(string, string)> emailFilterQuery =
+                from personInfo in People
+                where filter(personInfo.EmailAddress)
+                select (personInfo.FirstName, personInfo.LastName);
 
             //Execute the query
-            return emailFilterQuery;
+            IEnumerable<(string, string)> list = emailFilterQuery.ToList();
+
+            return list;
         }
 
         // 6.

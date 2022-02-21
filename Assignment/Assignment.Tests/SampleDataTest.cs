@@ -11,6 +11,7 @@ public class SampleDataTest
 {
     IEnumerator<string>? stringEnumerator;
     IEnumerator<IPerson>? personEnumerator;
+    IEnumerator<(string, string)>? stringToupleEnumerator;
     SampleData data = new();
 
     [TestMethod]
@@ -19,7 +20,7 @@ public class SampleDataTest
         stringEnumerator = data.CsvRows.GetEnumerator();
         string getData;
 
-        while (stringEnumerator.MoveNext())
+        while(stringEnumerator.MoveNext())
         {
             getData = stringEnumerator.Current;
             Console.WriteLine(getData);
@@ -33,7 +34,7 @@ public class SampleDataTest
         stringEnumerator = data.CsvRows.GetEnumerator();
         string getData;
 
-        while (stringEnumerator.MoveNext())
+        while(stringEnumerator.MoveNext())
         {
             getData = stringEnumerator.Current;
             Console.WriteLine(getData);
@@ -44,7 +45,7 @@ public class SampleDataTest
     [TestMethod]
     public void GetUniqueSortedListOfStatesGivenCsvRows_GetCorrectData_Success()
     {
-        stringEnumerator = data.CsvRows.GetEnumerator();
+        stringEnumerator = data.GetUniqueSortedListOfStatesGivenCsvRows().GetEnumerator();
         string state;
 
         while(stringEnumerator.MoveNext())
@@ -69,7 +70,7 @@ public class SampleDataTest
         personEnumerator = data.People.GetEnumerator();
         IPerson getPerson;
 
-        while (personEnumerator.MoveNext())
+        while(personEnumerator.MoveNext())
         {
             getPerson = personEnumerator.Current;
             Console.WriteLine(getPerson.ToString());
@@ -80,11 +81,21 @@ public class SampleDataTest
     [TestMethod]
     public void FilterByEmailAddress_Success()
     {
-        //SampleData data = new();
-        //IPerson person;
-        //Predicate<string> = 
-        //data.FilterByEmailAddress()
-        //FilterByEmailAddress(Func < IPerson, Boolean > exists, person);
+        //email to use in filter
+        string emailAddress = "fdoughertyi@stanford.edu";
+
+        //filter method to be passed to the Predicate delegate
+        bool filterMethod(string name) => name.Contains(emailAddress);
+
+        stringToupleEnumerator = data.FilterByEmailAddress(filterMethod).GetEnumerator();
+        (string, string) personInfo;
+
+        while (stringToupleEnumerator.MoveNext())
+        {
+            personInfo = stringToupleEnumerator.Current;
+            Console.WriteLine(personInfo);
+            Assert.AreEqual<string>("(Fayette, Dougherty)", personInfo.ToString());
+        }
     }
 }
 
