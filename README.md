@@ -68,11 +68,11 @@ Recommended But **Not** Required (in order of priority)
    - Sort the list by State, City, Zip. (Sort the addresses first then select). ❌✔
    - Be sure that `Person.Address` is also populated. ✔
    - Adding null validation to all the `Person` and `Address` properties is **optional**.
-   - Consider using `ISampleData.CsvRows` in your test to verify your results. ❌✔
+   - Consider using `ISampleData.CsvRows` in your test to verify your results. ✔
 
-5. Implement `ISampleDate.FilterByEmailAddress(Predicate<string> filter)` to return a list of names where the email address matches the `filter`. ❌✔
+5. Implement `ISampleDate.FilterByEmailAddress(Predicate<string> filter)` to return a list of names where the email address matches the `filter`. ✔
 
-   - Use `ISampleData.People` for your data source. ❌✔
+   - Use `ISampleData.People` for your data source. ✔
 
 6. Implement `ISampleData.GetAggregateListOfStatesGivenPeopleCollection(IEnumerable<IPerson> people)` to return a `string` that contains a **unique**, comma separated list of states. ❌✔
 
