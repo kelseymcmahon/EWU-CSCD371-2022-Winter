@@ -86,18 +86,11 @@ namespace Assignment
                 from personInfo in People
                 select personInfo.Address.State;
 
-            IEnumerable<string> personlist = personFilterQuery.Distinct().ToList().ToArray();
+            IEnumerable<string> personlist = personFilterQuery.Distinct().ToArray();
 
-            // string str = string.Join(", ", personlist);
+            string personStringList = personlist.Aggregate((s1, s2) => s1 + ", " + s2);
 
-            //people.Aggregate(people.Select(people => str));
-
-            //where filter(personInfo.EmailAddress)
-            //select (personInfo.FirstName, personInfo.LastName);
-
-            var str = personlist.Aggregate((s1, s2) => s1 + ", " + s2);
-
-            return str;
+            return personStringList;
         }
     }
 }
