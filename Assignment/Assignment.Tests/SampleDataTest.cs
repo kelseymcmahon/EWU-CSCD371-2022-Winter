@@ -17,15 +17,8 @@ public class SampleDataTest
     [TestMethod]
     public void CvsRows_GetData_Success()
     {
-        stringEnumerator = data.CsvRows.GetEnumerator();
-        string getData;
-
-        while(stringEnumerator.MoveNext())
-        {
-            getData = stringEnumerator.Current;
-            Console.WriteLine(getData);
-            Assert.IsNotNull(getData);
-        }
+        Assert.IsNotNull(data.CsvRows);
+        Assert.AreEqual<int>(50, data.CsvRows.Count());
     }
 
     [TestMethod]
