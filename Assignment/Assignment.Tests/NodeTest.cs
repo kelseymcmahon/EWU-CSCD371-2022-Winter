@@ -21,17 +21,61 @@ namespace Assignment.Tests
         [TestMethod]
         public void Append_NodeLinksAreCircular_Success()
         {
-            Node<string> node1 = new("Kelsey");
-            Node<string> node2 = new("Whitney");
-            Node<string> node3 = new("Leona");
+            Node<string> nodeList = new("Kelsey");
+            nodeList.Append("Whitney");
+            nodeList.Append("Leona");
+            nodeList.Append("Gray");
 
-            node1.Append(node2);
-            node2.Append(node3);
+            Node<string> currentNode = nodeList;
+            Assert.AreEqual<string>(currentNode.Value, "Kelsey");
 
-            Assert.AreEqual<Node<string>>(node1.Next, node2);
-            Assert.AreEqual<Node<string>>(node2.Next, node3);
-            Assert.AreEqual<Node<string>>(node3.Next, node1);
+            currentNode = currentNode.Next;
+            Assert.AreEqual<string>(currentNode.Value, "Gray");
+
+            currentNode = currentNode.Next;
+            Assert.AreEqual<string>(currentNode.Value, "Leona");
+
+            currentNode = currentNode.Next;
+            Assert.AreEqual<string>(currentNode.Value, "Whitney");
+
+            currentNode = currentNode.Next;
+            Assert.AreEqual<string>(currentNode.Value, nodeList.Value);
         }
 
+        [TestMethod]
+        public void Exists_ValuePresent_Success()
+        {
+            Node<string> nodeList = new("Kelsey");
+            nodeList.Append("Whitney");
+            nodeList.Append("Leona");
+            nodeList.Append("Gray");
+
+            Assert.IsTrue(nodeList.Exists("Kelsey"));
+            Assert.IsTrue(nodeList.Exists("Gray"));
+        }
+
+        [TestMethod]
+        public void GetEnumerator_ReturnsItems_Success()
+        {
+            Node<string> nodeList = new("Kelsey");
+            nodeList.Append("Whitney");
+            nodeList.Append("Leona");
+            nodeList.Append("Gray");
+
+            IEnumerator<Node<string>> stringEnumerator = nodeList.GetEnumerator();
+
+            string getData;
+            int count = 0;
+
+            while (stringEnumerator.MoveNext())
+            {
+                getData = stringEnumerator.Current.Value;
+                count++;
+                Console.WriteLine(getData);
+                Assert.IsNotNull(getData);
+            }
+
+            Assert.AreEqual<int>(count, nodeList.Count());
+        }
     }
 }
