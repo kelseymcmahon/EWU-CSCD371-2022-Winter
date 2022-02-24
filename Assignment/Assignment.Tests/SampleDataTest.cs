@@ -120,6 +120,8 @@ public class SampleDataTest
     public void GetAggregateListOfStatesGivenPeopleCollection__GetCorrectData_Success()
     {
         Console.WriteLine(data.GetAggregateListOfStatesGivenPeopleCollection(data.People));
+        Assert.IsNotNull(data.GetAggregateListOfStatesGivenPeopleCollection(data.People));
+        Assert.IsInstanceOfType(data.GetAggregateListOfStatesGivenPeopleCollection(data.People), typeof(string));
     }
 }
 
