@@ -49,6 +49,29 @@ public class SampleDataTest
         }
     }
 
+    [TestMethod]
+    public void GetUniqueSortedListOfStatesGivenCsvRows_CheckListDataWithHardcodedData_Success()
+    {
+        IEnumerable<string> newData = data.CsvRows;
+
+        IEnumerable<string> stateQuery =
+                from line in newData
+                where line.Contains("Spokane")
+                select line;
+
+        IEnumerable<string> spokaneData = stateQuery.Distinct().ToList();
+
+        stringEnumerator = spokaneData.GetEnumerator();
+        string state;
+
+        while (stringEnumerator.MoveNext())
+        {
+            state = stringEnumerator.Current;
+            Console.WriteLine(state);
+            Assert.IsTrue(state.Contains("Spokane"));
+        }
+    }
+
    [TestMethod]
     public void GetAggregateSortedListOfStatesUsingCsvRows_GetCorrectData_Success()
     {
