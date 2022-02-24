@@ -46,14 +46,14 @@ Recommended But **Not** Required (in order of priority)
 
    - Change the "Copy to" property on People.csv to "Copy if newer" so that the file is deployed along with your test project. ✔
    - Using LINQ, skip the first row in the `People.csv`. ✔
-   - Be sure to appropriately handle resource (`IDisposable`) items correctly if applicable (and it may not be depending on how you implement it). ❌✔
+   - Be sure to appropriately handle resource (`IDisposable`) items correctly if applicable (and it may not be depending on how you implement it). ✔
 
 2. Implement `IEnumerable<string> GetUniqueSortedListOfStatesGivenCsvRows()` to return a **sorted**, **unique** list of states. ❌✔
 
    - Use `ISampleData.CsvRows` for your data source. ✔
    - Don't forget the list should be unique. ✔
    - Sort the list alphabetically. ✔
-   - Include a test that leverages a hardcoded list of Spokane-based addresses. ❌✔
+   - Include a test that leverages a hardcoded list of Spokane-based addresses. ✔
    - Include a test that uses LINQ to verify the data is sorted correctly (do not use a hardcoded list). ❌✔
 
 3. Implement `ISampleData.GetAggregateSortedListOfStatesUsingCsvRows()` to return a `string` that contains a **unique**, comma separated list of states. ✔
@@ -62,10 +62,10 @@ Recommended But **Not** Required (in order of priority)
    - Consider "selecting" only the states and calling `ToArray()` to retrieve an array of all the state names. ✔
    - Given the array, consider using `string.Join` to combine the list into a single string. ✔
 
-4. Implement the `ISampleData.People` property to return all the items in `People.csv` as `Person` objects ❌✔
+4. Implement the `ISampleData.People` property to return all the items in `People.csv` as `Person` objects ✔
 
    - Use `ISampleData.CsvRows` as the source of the data. ✔
-   - Sort the list by State, City, Zip. (Sort the addresses first then select). ❌✔
+   - Sort the list by State, City, Zip. (Sort the addresses first then select). ✔
    - Be sure that `Person.Address` is also populated. ✔
    - Adding null validation to all the `Person` and `Address` properties is **optional**.
    - Consider using `ISampleData.CsvRows` in your test to verify your results. ✔
@@ -83,12 +83,12 @@ Recommended But **Not** Required (in order of priority)
 
 7. Given the implementation of `Node` in Assignment5
 
-- Implement `IEnumerable<T>` to return all the items in the "circle" of items. ❌✔
+- Implement `IEnumerable<T>` to return all the items in the "circle" of items. ✔
 - Add an `IEnumberable<T> ChildItems(int maximum)` method to `Node` that returns the remaining items with a maximum number of items returned less than `maximum`.  
 
 ## Extra Credit
 
-- Implement the homework using async/await and multi-threading by defining a new `SampleDataAsync` class that implements `IAsyncSampleData`). Refactor your `SampleData` and `SampleDataAsync` classes with minimal duplication. Be sure to refactor your tests to re-use a significant amount of the test code for both implementations. ❌✔
+- Implement the homework using async/await and multi-threading by defining a new `SampleDataAsync` class that implements `IAsyncSampleData`). Refactor your `SampleData` and `SampleDataAsync` classes with minimal duplication. Be sure to refactor your tests to re-use a significant amount of the test code for both implementations. ✔
 
 ## Fundamentals
 
@@ -97,6 +97,6 @@ Recommended But **Not** Required (in order of priority)
   - net6 targeted ✔
   - C# 10.0 ✔
   - and enabled .NET analyzers for both projects ✔
-- For this assignment, favor using Assert.AreEqual<T>() (the generic version) ❌✔
-- All of the above should be unit tested ❌✔
-- Choose simplicity over complexity ❌✔
+- For this assignment, favor using Assert.AreEqual<T>() (the generic version) ✔
+- All of the above should be unit tested ✔
+- Choose simplicity over complexity ✔
