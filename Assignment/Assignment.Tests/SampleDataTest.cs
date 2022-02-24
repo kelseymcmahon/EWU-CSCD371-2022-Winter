@@ -65,6 +65,15 @@ public class SampleDataTest
     }
 
     [TestMethod]
+    public void GetUniqueSortedListOfStatesGivenCsvRows_CheckForUniqueness_Success()
+    {
+        IEnumerable<string> sortedStates = data.GetUniqueSortedListOfStatesGivenCsvRows();
+
+        Assert.AreEqual<int>(1, sortedStates.Where(state => state.Contains("AL")).Count());
+        Assert.AreEqual<int>(1, sortedStates.Where(state => state.Contains("WA")).Count());
+    }
+
+    [TestMethod]
     public void GetUniqueSortedListOfStatesGivenCsvRows_CheckListDataWithHardcodedData_Success()
     {
         IEnumerable<string> newData = data.CsvRows;
