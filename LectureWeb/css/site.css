@@ -1,0 +1,97 @@
+span {
+    color: blue;
+}
+
+button {
+    background-color: lightcoral;
+    border: 2px solid lightgray;
+    padding: 5px;
+    width: 250px;
+    margin: 0 auto;
+}
+
+img {
+    width: 10px;
+    height: 20px;
+    background-color: pink;
+}
+
+.medium {
+    background-color: red;
+}
+
+body {
+    margin: 0;
+}
+
+div {
+    width: 100%;
+    padding: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+button:hover {
+    padding: 3px;
+    background: linear-gradient(90deg, rgba(2,0,36,0.8) 0%, rgba(9,9,121,0.5) 75%, rgba(0,212,255,1) 100%);
+}
+
+.TitleBar {
+    background-color: lightgray;
+    text-align: center;
+}
+
+.PageContent1 {
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+
+.PageContent2 {
+    padding-top: 150px;
+    padding-bottom: 150px;
+    background-color: lightcoral;
+}
+
+p {
+    font-size: 15px;
+}
+
+h1 {
+    
+    font-size: 60px;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+h3 {
+    font-size: 25px;
+}
+
+table {
+    padding: 10px, 50px, 10px, 50px;
+    background-color: lightgray;
+    border-spacing: 5px;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+td, th {
+    border: 1px solid gray;
+    padding: 10px;
+    text-align: left;
+}
+
+thead, th, tfoot {
+    background-color: gray;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+footer {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: lightgray;
+    text-align: center;
+}

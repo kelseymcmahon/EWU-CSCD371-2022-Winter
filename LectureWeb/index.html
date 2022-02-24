@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
+
 <head>
     <!-- Make sure you have this
         section in your HTML file. -->
-    <title>Meg's Special Page</title>
+    <title>Kelsey's Special Page</title>
+    <link rel="stylesheet" href="css/site.css">
 </head>
 
 <body>
-    <div>
-        <p style="font-weight: bold;">
+    <div class="TitleBar">
+        <h1>
             This is <span style="color:red;">some</span> text.
-        </p>
+        </h1>
+        <p>This is sub header text</p>
     </div>
-    <div>
+    <div class="PageContent1">
         <button>
             <img src="https://www.freeiconspng.com/thumbs/cursor-png/cursor-png-ico-icns-free-icon-download--icon100m-20.png"
                 alt="Meg" />
@@ -30,40 +33,52 @@
                 height="50" width="50" alt="Meg" />
         </div>
     </div>
+
+    <div class="PageContent2">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>
+                    <p>This is something</p>
+                </td>
+                <td>
+                    <p>This is something</p>
+                </td>
+                <td>
+                    <p>This is something</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>This is something</p>
+                </td>
+                <td>
+                    <p>This is something</p>
+                </td>
+                <td>
+                    <p>This is something</p>
+                </td>
+            </tr>
+            <tfoot>
+                <tr>
+                    <td colspan="3">
+                        <center><p>This is the bottom</p></center>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <footer>
+        <h3>This is the end</h3>
+        <p>Hello there</p>
+    </footer>
 </body>
 
 </html>
-<style>
-    span {
-        color: blue;
-    }
-
-    button {
-        background-color: blueviolet;
-        border: 2px solid aliceblue;
-        padding: 2px;
-        margin: 10px;
-        border-radius: 10px;
-    }
-
-    img {
-        width: 10px;
-        height: 20px;
-        background-color: pink;
-    }
-
-    .medium {
-        background-color: red;
-    }
-
-    div {
-        padding: 2px;
-        margin: 3px;
-        border: 2px solid black;
-    }
-
-    button:hover {
-        padding: 3px;
-        background: linear-gradient(90deg, rgba(2,0,36,0.8) 0%, rgba(9,9,121,0.5) 75%, rgba(0,212,255,1) 100%);
-    }
-</style>
