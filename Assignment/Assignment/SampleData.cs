@@ -39,7 +39,6 @@ namespace Assignment
         }
 
         // 4.
-        // Sort the list by State, City, Zip. (Sort the addresses first then select).
         public IEnumerable<IPerson> People
         {
             get
@@ -48,7 +47,7 @@ namespace Assignment
                 IEnumerable<IPerson> peopleQuery =
                     from line in CsvRows
                     let peopleInfo = line.Split(',')
-                    orderby peopleInfo[5], peopleInfo[6], peopleInfo[7]
+                    orderby peopleInfo[6], peopleInfo[5], peopleInfo[7]
                     select new Person(peopleInfo[1], 
                                       peopleInfo[2],
                                       new Address(peopleInfo[5], peopleInfo[4], peopleInfo[6], peopleInfo[7]),
