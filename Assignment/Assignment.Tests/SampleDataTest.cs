@@ -47,8 +47,21 @@ public class SampleDataTest
             Console.WriteLine(state);
             Assert.IsNotNull(state);
         }
+    }
 
-        //Include a test that uses LINQ to verify the data is sorted correctly (do not use a hardcoded list).
+    [TestMethod]
+    public void GetUniqueSortedListOfStatesGivenCsvRows_CheckForCorrectSort_Success()
+    {
+        IEnumerable<string> sortedStates = data.GetUniqueSortedListOfStatesGivenCsvRows();
+
+        var stateOrderQuery =
+            from person in data.People
+            orderby person.Address.State
+            select person.Address.State;
+
+        IEnumerable<string> sortedStatesTest = stateOrderQuery.Distinct().ToList();
+
+        Assert.IsTrue(sortedStatesTest.SequenceEqual(sortedStates));    
     }
 
     [TestMethod]
