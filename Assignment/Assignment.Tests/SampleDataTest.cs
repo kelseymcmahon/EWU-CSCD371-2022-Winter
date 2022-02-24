@@ -47,6 +47,8 @@ public class SampleDataTest
             Console.WriteLine(state);
             Assert.IsNotNull(state);
         }
+
+        //Include a test that uses LINQ to verify the data is sorted correctly (do not use a hardcoded list).
     }
 
     [TestMethod]
