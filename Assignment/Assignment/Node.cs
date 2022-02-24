@@ -68,4 +68,22 @@ public class Node<T> : IEnumerable<Node<T>> where T : notnull
     {
         return GetEnumerator();
     }
+
+    public IEnumerable<Node<T>> ChildItems(int maximum)
+    {
+        List<Node<T>> list = new();
+        
+        int count = 0;
+        Node<T> current = this;
+
+        do
+        {
+            list.Add(current);
+            current = current.Next;
+            count++;
+        }
+        while (count < maximum);
+
+        return list;
+    }
 }
