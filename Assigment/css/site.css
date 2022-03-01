@@ -58,6 +58,20 @@ Dropdown {
     padding: 15px;
 }
 
+#AnotherJokeButton {
+    padding: 10px;
+    font-size: 18px;
+    background-image: linear-gradient(to right, darkcyan, dodgerblue, dodgerblue);
+    color: white;
+}
+
+#JokeAPI {
+    padding: 10px;
+    font-size: 18px;
+    border: black 2px solid;
+    border-radius: 5px;
+}
+
 .MenuButton {
     border-radius: 10px;
     padding: 10px;
