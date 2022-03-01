@@ -26,7 +26,7 @@ Just like when working as a software developer, the web will be your primary sou
 - There should be a `<head>`
   - With a favicon ✔
   - And a title ✔
-- The `<body>` should use the middle 70% of the page ❌✔
+- The `<body>` should use the middle 70% of the page ✔
 
 ### Menu Bar
 - The page should have a title/menu bar ✔
