@@ -55,7 +55,7 @@ Do the following:
 
 1. Make the buttons in the menu do something creative ❌✔
 2. Rather than just making the menu appear, have it fade in and slide down. ❌✔
-3. Have the page jump to 100% width on a smaller screen and 50% on a larger screen with 70% on a regular screen.
+3. Have the page jump to 100% width on a smaller screen and 50% on a larger screen with 70% on a regular screen.✔
 
 ## The page should look like this
 ![Page to Replicate](WebExample.jpg)
