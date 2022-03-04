@@ -9,41 +9,39 @@
 
 <body>
 
-    <div class="NavBar">
+    <div class="nav-bar">
         <ul>
             <li style="float:left"><h1>EWU</h1></li>
-            <li class="Dropdown" onclick="showMenu()">
+            <li class="dropdown" onclick="showMenu()">
                 <a href="#" class="dropbtn"><h2><i class="fa-solid fa-bars"></i></h2></a>
-                <div class="DropdownItems">
-                    <button class="MenuButton">Find Miracle Max</button>
-                    <button class="MenuButton">Storm the Castle</button>
-                    <button class="MenuButton">Do Chores</button>
-                    <button class="MenuButton">Become Utmostly Dead</button>
+                <div class="dropdown-items">
+                    <button class="menu-button">Find Miracle Max</button>
+                    <button class="menu-button">Storm the Castle</button>
+                    <button class="menu-button">Do Chores</button>
+                    <button class="menu-button">Become Utmostly Dead</button>
                 </div>
             </li>
             <li><h3>Menu</h3></li>
         </ul>
     </div>
 
-    <div class="Main">
+    <div class="main">
         <h2><b>The Joke Page</b></h2>
     </div>
 
-    <div class="JokeContainer">
+    <div class="card">
 
-        <div class="JokeContainerHeader">
+        <div class="card-header">
             <h3><b>A Joke</b></h3>
         </div>
 
-        <div class="JokeContainerContent">
+        <div class="card-body">
             <p>Joke text will go</p>
             <p>here:</p>
         </div>
 
-        <hr />
-
-        <div class="JokeContainerContent">
-            <button id="AnotherJokeButton">Another Joke</button>  <button id="JokeAPI">Joke API</button>
+        <div class="card-footer">
+            <button class="card-button-primary">Another Joke</button>  <button class="card-button-secondary">Joke API</button>
         </div>
 
     </div>
