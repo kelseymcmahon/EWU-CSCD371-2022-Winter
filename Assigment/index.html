@@ -36,16 +36,18 @@
         </div>
 
         <div class="card-body">
-            <p>Joke text will go</p>
-            <p>here:</p>
+            <div class="jokeSetup"></div>
+            <div class="jokePunchline"></div>
         </div>
 
         <div class="card-footer">
-            <button class="card-button-primary">Another Joke</button>  <button class="card-button-secondary">Joke API</button>
+            <button class="card-button-primary" onclick="getNewJoke()">Another Joke</button>
+            <button class="card-button-secondary">Joke API</button>
         </div>
 
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="js/index.js"></script>
     <script src="https://kit.fontawesome.com/8808ce2e4c.js" crossorigin="anonymous"></script>
 </body>
