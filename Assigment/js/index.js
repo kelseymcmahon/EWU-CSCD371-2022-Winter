@@ -28,7 +28,26 @@ function showMenu() {
 
 const sendGetRequest = async () => {
     try {
-        const response = await axios.get('https://v2.jokeapi.dev/joke/Programming');
+        const response = await axios.get('https://v2.jokeapi.dev/joke/Programming').catch(function (error) {
+            if (error.response) {
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+            } else if (error.request) {
+                // The request was made but no response was received
+                // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                // http.ClientRequest in node.js
+                console.log(error.request);
+            } else {
+                jokeSetup.innerHTML = "<p>Error getting joke, fetching another joke...</p>";
+                console.log('Error', error.message);
+                sendGetRequest();
+            }
+            console.log(error.config);
+        });
+
         console.log(response);
         let jokeSetup = document.querySelector(".jokeSetup");
         let jokePunchline = document.querySelector(".jokePunchline");
@@ -40,8 +59,8 @@ const sendGetRequest = async () => {
             setTimeout(() => { jokePunchline.innerHTML = "<p>" + response.data.delivery + "</p>"; }, 4000);
         }
     }
-    catch (err) {
-        console.error(err);
+    catch (error) {
+        console.error(error);
         jokeSetup.innerHTML = "<p>Error getting joke, fetching another joke...</p>";
         sendGetRequest();
     }
