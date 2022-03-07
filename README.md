@@ -40,9 +40,9 @@ Just like when working as a software developer, the web will be your primary sou
   - The CSS for this should be in the CSS file and work easily for another card. ✔
 
 ### Show jokes on the card
-- Use the joke API from the first assignment to display a joke on a card (https://v2.jokeapi.dev/joke/Programming) ❌✔
+- Use the joke API from the first assignment to display a joke on a card (https://v2.jokeapi.dev/joke/Programming) ✔
   - Use Axios from the CDN for the API call. (https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js)
-  - If the joke API returns an error display a message to try again in a few moments ❌✔
+  - If the joke API returns an error display a message to try again in a few moments ✔
   - The punch line should not show immediately, but appear after 4 seconds ✔
   - There should be a button to get another joke ✔
   - There should be `<a>` tag that links to the joke api documentation page ❌✔
@@ -64,7 +64,7 @@ Do the following:
 - Ensure that:
   - This is built with raw HTML, CSS, and JavaScript, no external libraries aside from Axios and a font library ❌✔
   - The index.html file should work when opened from a file explorer ❌✔
-  - Keep all files in appropriate folders ❌✔
+  - Keep all files in appropriate folders ✔
   - Have warning free HTML, CSS, and JavaScript ❌✔
   - Use as little css as possible ❌✔
   - No inline CSS ❌✔
