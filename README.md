@@ -43,18 +43,18 @@ Just like when working as a software developer, the web will be your primary sou
 - Use the joke API from the first assignment to display a joke on a card (https://v2.jokeapi.dev/joke/Programming) ❌✔
   - Use Axios from the CDN for the API call. (https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js)
   - If the joke API returns an error display a message to try again in a few moments ❌✔
-  - The punch line should not show immediately, but appear after 4 seconds ❌✔
-  - There should be a button to get another joke ❌✔
+  - The punch line should not show immediately, but appear after 4 seconds ✔
+  - There should be a button to get another joke ✔
   - There should be `<a>` tag that links to the joke api documentation page ❌✔
-    - This `<a>` should be manually styled as a button ❌✔
-- Buttons should have a background that is a gradient ❌✔
-- All buttons (even the `<a>` that you made into a button) should have a hover effect  ❌✔
+    - This `<a>` should be manually styled as a button ✔
+- Buttons should have a background that is a gradient ✔
+- All buttons (even the `<a>` that you made into a button) should have a hover effect  ✔
 
 ## Extra Credit
 Do the following:
 
 1. Make the buttons in the menu do something creative ❌✔
-2. Rather than just making the menu appear, have it fade in and slide down. ❌✔
+2. Rather than just making the menu appear, have it fade in and slide down. ✔
 3. Have the page jump to 100% width on a smaller screen and 50% on a larger screen with 70% on a regular screen.✔
 
 ## The page should look like this
