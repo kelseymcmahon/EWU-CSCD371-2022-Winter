@@ -3,6 +3,7 @@ body {
     margin: auto;
     font-family: 'Times New Roman', Times, serif;
 }
+
 .nav-bar {
     background-color: black;
 }
@@ -26,15 +27,52 @@ body {
     right: 0;
     background-color: white;
     border: 3px solid gray;
+    -webkit-animation: grownDownFadeIn 300ms ease-in-out normal;
+    animation: grownDownFadeIn 500ms ease-in-out normal;
+    transform-origin: top center;
 }
 
     .dropdown-items button {
         margin: 10px;
         display: block;
+        border-radius: 10px;
+        width: 300px;
     }
 
 .show {
     display: block;
+}
+
+@-webkit-keyframes grownDownFadeIn {
+    0% {
+        transform: scaleY(0);
+        opacity: 0;
+    }
+
+    80% {
+        transform: scaleY(1.1);
+    }
+
+    100% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+@keyframes grownDownFadeIn {
+    0% {
+        transform: scaleY(0);
+        opacity: 0;
+    }
+
+    80% {
+        transform: scaleY(1.1);
+    }
+
+    100% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
 }
 
 .main {
@@ -56,6 +94,7 @@ body {
 
 .card-body {
     padding: 15px;
+    height: 125px;
 }
 
 .card-footer {
@@ -63,28 +102,62 @@ body {
     border-top: solid lightgray 2px;
 }
 
-.card-button-primary {
-    padding: 10px;
-    font-size: 18px;
-    background-image: linear-gradient(to right, darkcyan, dodgerblue, dodgerblue);
+.make-blue {
+    background-color: cornflowerblue;
     color: white;
 }
 
-.card-button-secondary {
-    padding: 10px;
-    font-size: 18px;
-    border: black 2px solid;
-    border-radius: 5px;
+.change-font {
+    font-family: 'Sacramento', cursive;
 }
 
-.menu-button {
-    border-radius: 10px;
+.popup {
+    position: absolute;
+    visibility: hidden;
+    top: 50%;
+    left: 50%;
+    background: black;
+    width: 800px;
+    height: 500px;
+    margin-left: -400px; /*Half the value of width to center it*/
+    margin-top: -250px;
+    z-index: 200;
+}
+
+.popup-content {
+    width: fit-content;
+    height: fit-content;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.Iframe {
+    height: 100%;
+    width: 100%;
+}
+
+button {
     padding: 10px;
     font-size: 18px;
-    width: 300px;
-    background-image: linear-gradient(to right, darkcyan, dodgerblue, dodgerblue);
-    color: white;
 }
+
+    button.primary {
+        background-image: linear-gradient(to right, darkcyan, dodgerblue, dodgerblue);
+        color: white;
+    }
+
+    button.secondary {
+        border: black 2px solid;
+        border-radius: 5px;
+        background-color: white;
+        color: black;
+    }
+
+    button:hover {
+        opacity: 0.5;
+    }
 
 h1, h2, h3 {
     margin: 0;
@@ -126,7 +199,6 @@ li {
 
 /* Regular Screen CSS Styles */
 @media screen and (max-width: 1080px) {
-
     body {
         width: 70%;
     }
@@ -135,10 +207,17 @@ li {
 
 /* Mobile CSS Styles */
 @media screen and (max-width: 650px) {
-
-
     body {
         width: 100%;
+    }
+
+    .main {
+        margin: 20px;
+        padding: 30px 0 30px 0;
+    }
+
+    .card {
+        margin: 20px;
     }
 }
 

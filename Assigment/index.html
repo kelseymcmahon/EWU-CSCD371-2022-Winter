@@ -5,6 +5,10 @@
     <title>Joke Page</title>
     <link rel="stylesheet" href="css/site.css">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.png">
+    <!--Google fonts for fun-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -13,12 +17,12 @@
         <ul>
             <li style="float:left"><h1>EWU</h1></li>
             <li class="dropdown" onclick="showMenu()">
-                <a href="#" class="dropbtn"><h2><i class="fa-solid fa-bars"></i></h2></a>
+                <a href="#"><h2><i class="fa-solid fa-bars"></i></h2></a>
                 <div class="dropdown-items">
-                    <button class="menu-button">Find Miracle Max</button>
-                    <button class="menu-button">Storm the Castle</button>
-                    <button class="menu-button">Do Chores</button>
-                    <button class="menu-button">Become Utmostly Dead</button>
+                    <button class="primary" onclick="makeBlue()">I'm blue da ba dee da ba daa</button>
+                    <button class="primary" onclick="makeFancy()">Lets get classy</button>
+                    <button class="primary">Do Chores</button>
+                    <button class="primary" onclick="doNotRunThis()">DO NOT CLICK THIS</button>
                 </div>
             </li>
             <li><h3>Menu</h3></li>
@@ -41,10 +45,20 @@
         </div>
 
         <div class="card-footer">
-            <button class="card-button-primary" onclick="getNewJoke()">Another Joke</button>
-            <button class="card-button-secondary">Joke API</button>
+            <button class="primary" onclick="getNewJoke()">Another Joke</button>
+            <button class="secondary">Joke API</button>
         </div>
 
+    </div>
+
+    <div class="popup">
+        
+            <iframe class="Iframe" src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
+        
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
