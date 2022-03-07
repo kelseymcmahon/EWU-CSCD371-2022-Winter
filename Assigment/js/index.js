@@ -29,14 +29,16 @@ function showMenu() {
 const sendGetRequest = async () => {
     try {
         const response = await axios.get('https://v2.jokeapi.dev/joke/Programming');
-        console.log(response.data);
         console.log(response);
-        console.log(response.data.setup);
-
         let jokeSetup = document.querySelector(".jokeSetup");
         let jokePunchline = document.querySelector(".jokePunchline");
-        jokeSetup.innerHTML = "<p>" + response.data.setup + "</p>";
-        setTimeout(() => { jokePunchline.innerHTML = "<p>" + response.data.delivery + "</p>"; }, 4000);
+        if (response.data.type == "single") {
+            jokeSetup.innerHTML = "<p>" + response.data.joke + "</p>";
+        }
+        else {
+            jokeSetup.innerHTML = "<p>" + response.data.setup + "</p>";
+            setTimeout(() => { jokePunchline.innerHTML = "<p>" + response.data.delivery + "</p>"; }, 4000);
+        }
     }
     catch (err) {
         console.error(err);
