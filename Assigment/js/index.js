@@ -89,3 +89,7 @@ function makeFancy() {
 function doNotRunThis() {
     document.querySelector(".popup").classList.toggle("visible");
 }
+
+function card-footer(){
+    <button class="secondary" onClick="https://v2.jokeapi.dev/joke/Programming">Joke API</button>
+}
