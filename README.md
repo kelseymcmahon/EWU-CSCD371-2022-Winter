@@ -45,7 +45,7 @@ Just like when working as a software developer, the web will be your primary sou
   - If the joke API returns an error display a message to try again in a few moments ✔
   - The punch line should not show immediately, but appear after 4 seconds ✔
   - There should be a button to get another joke ✔
-  - There should be `<a>` tag that links to the joke api documentation page ❌✔
+  - There should be `<a>` tag that links to the joke api documentation page ✔
     - This `<a>` should be manually styled as a button ✔
 - Buttons should have a background that is a gradient ✔
 - All buttons (even the `<a>` that you made into a button) should have a hover effect  ✔
@@ -63,12 +63,12 @@ Do the following:
 ## Fundamentals
 - Ensure that:
   - This is built with raw HTML, CSS, and JavaScript, no external libraries aside from Axios and a font library ❌✔
-  - The index.html file should work when opened from a file explorer ❌✔
+  - The index.html file should work when opened from a file explorer ✔
   - Keep all files in appropriate folders ✔
   - Have warning free HTML, CSS, and JavaScript ❌✔
-  - Use as little css as possible ❌✔
+  - Use as little css as possible ✔
   - No inline CSS ❌✔
   - Validate HTML with: https://validator.w3.org/nu/#textarea (or similar) ❌✔
   - Validate CSS with: https://jigsaw.w3.org/css-validator/#validate_by_input (or similar) ❌✔
-  - No errors when loading the page ❌✔
-  - Choose simplicity over complexity ❌✔
+  - No errors when loading the page ✔
+  - Choose simplicity over complexity ✔
