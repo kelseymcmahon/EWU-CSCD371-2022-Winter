@@ -111,6 +111,18 @@ body {
     font-family: 'Sacramento', cursive;
 }
 
+.johnny {
+    /*background-color: orange;*/
+    background-image: url(https://www.cheatsheet.com/wp-content/uploads/2021/02/Jack-Nicholson-1.jpg);
+    background-size: cover;
+}
+
+.joke-johnny {
+    background-color: black;
+    color:white;
+    width: fit-content;
+}
+
 .popup {
     position: absolute;
     visibility: hidden;

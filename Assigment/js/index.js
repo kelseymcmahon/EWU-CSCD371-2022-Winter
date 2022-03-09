@@ -66,3 +66,9 @@ function makeFancy() {
 function doNotRunThis() {
     document.querySelector(".popup").classList.toggle("visible");
 }
+
+function johnny() {
+    document.querySelector(".card").classList.toggle("johnny");
+    document.querySelector(".jokeSetup").classList.toggle("joke-johnny");
+    document.querySelector(".jokePunchline").classList.toggle("joke-johnny");
+}
