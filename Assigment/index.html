@@ -14,19 +14,25 @@
 <body>
 
     <div class="nav-bar">
-        <ul>
-            <li style="float:left"><h1>EWU</h1></li>
-            <li class="dropdown" onclick="showMenu()">
-                <a href="#"><h2><i class="fa-solid fa-bars"></i></h2></a>
-                <div class="dropdown-items">
-                    <button class="primary" onclick="makeBlue()">I'm blue da ba dee da ba daa</button>
-                    <button class="primary" onclick="makeFancy()">Lets get classy</button>
-                    <button class="primary" onclick="johnny()"> HERE goes nothing </button>
-                    <button class="primary" onclick="doNotRunThis()">DO NOT CLICK THIS</button>
-                </div>
-            </li>
-            <li><h3>Menu</h3></li>
-        </ul>
+
+        <div class="nav-logo">
+            <h1>EWU</h1>
+        </div>
+
+        <div class="dropdown" onclick="showMenu()">
+            <a href="#"><h2><i class="fa-solid fa-bars"></i></h2></a>
+            <div class="dropdown-items">
+                <button class="primary" onclick="makeBlue()">I'm blue da ba dee da ba daa</button>
+                <button class="primary" onclick="makeFancy()">Lets get classy</button>
+                <button class="primary" onclick="johnny()"> HERE goes nothing </button>
+                <button class="primary" onclick="window.location.href = 'https://youtu.be/dQw4w9WgXcQ' ">Debug Log</button>
+            </div>
+        </div>
+
+        <div class="nav-menu">
+            <h3>Menu</h3>
+        </div>
+
     </div>
 
     <div class="main">
@@ -34,7 +40,6 @@
     </div>
 
     <div class="card">
-
         <div class="card-header">
             <h3><b>A Joke</b></h3>
         </div>
@@ -45,25 +50,15 @@
         </div>
 
         <div class="card-footer">
-            <button class="primary" onclick="getNewJoke()">Another Joke</button>
-            <a href="https://v2.jokeapi.dev/joke/Programming" target="_blank"><button class="secondary">Joke API</button></a>
+            <button class="primary" onclick="getJoke()">Another Joke</button>
+            <button class="secondary" onclick=" window.open('https://v2.jokeapi.dev','_blank')">Joke API</button>
         </div>
-
-    </div>
-
-    <div class="popup">
-        
-            <iframe class="Iframe" src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0" 
-                    title="YouTube video player" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-            </iframe>
-        
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="js/index.js"></script>
     <script src="https://kit.fontawesome.com/8808ce2e4c.js" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

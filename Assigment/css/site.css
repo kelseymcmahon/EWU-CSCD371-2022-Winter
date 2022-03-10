@@ -6,6 +6,10 @@ body {
 
 .nav-bar {
     background-color: black;
+    color: white;
+    height: 50px;
+    padding: 10px;
+    position: relative;
 }
 
     .nav-bar a {
@@ -17,8 +21,19 @@ body {
             color: crimson;
         }
 
+.nav-logo {
+    float: left;
+}
+
+.nav-menu {
+    float: right;
+    height: 100%;
+    text-align: center;
+}
+
 .dropdown {
-    display: inline-block;
+    float: right;
+    padding-left: 10px;
 }
 
 .dropdown-items {
@@ -112,42 +127,15 @@ body {
 }
 
 .johnny {
-    /*background-color: orange;*/
     background-image: url(https://www.cheatsheet.com/wp-content/uploads/2021/02/Jack-Nicholson-1.jpg);
     background-size: cover;
+    height: 250px;
 }
 
 .joke-johnny {
     background-color: black;
     color:white;
     width: fit-content;
-}
-
-.popup {
-    position: absolute;
-    visibility: hidden;
-    top: 50%;
-    left: 50%;
-    background: black;
-    width: 800px;
-    height: 500px;
-    margin-left: -400px; /*Half the value of width to center it*/
-    margin-top: -250px;
-    z-index: 200;
-}
-
-.popup-content {
-    width: fit-content;
-    height: fit-content;
-}
-
-.visible {
-    visibility: visible;
-}
-
-.Iframe {
-    height: 100%;
-    width: 100%;
 }
 
 button {
@@ -193,26 +181,10 @@ p {
     font-size: 20px;
 }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-li {
-    float: right;
-    display: inline-block;
-    color: white;
-    padding: 14px 16px;
-    text-decoration: none;
-    vertical-align: text-bottom;
-}
-
-/* Regular Screen CSS Styles */
-@media screen and (max-width: 1080px) {
+/* Large Screen CSS Styles */
+@media screen and (min-width: 1080px) {
     body {
-        width: 70%;
+        width: 50%;
     }
 }
 

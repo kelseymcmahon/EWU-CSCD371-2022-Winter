@@ -2,48 +2,36 @@ function showMenu() {
     document.querySelector(".dropdown-items").classList.toggle("show");
 }
 
-const sendGetRequest = async () => {
-    try {
-        const response = await axios.get('https://v2.jokeapi.dev/joke/Programming')
-            .catch(function (error) {
-                if (error.response) {
-                    // The request was made and the server responded with a status code not in 200s
-                    console.log(error.response.data);
-                    console.log(error.response.status);
-                    console.log(error.response.headers);
-                } else if (error.request) {
-                    // The request was made but no response was received
-                    console.log(error.request);
-                } else {
-                    let jokeSetup = document.querySelector(".jokeSetup");
-                    jokeSetup.innerHTML = "<p>Error getting joke, fetching another joke...</p>";
-                    console.log('Error', error.message);
-                    sendGetRequest();
-                }
-                console.log(error.config);
-            });
+function getJoke() {
 
-        console.log(response);
+    let jokeSetup = document.querySelector(".jokeSetup");
+    let jokePunchline = document.querySelector(".jokePunchline");
 
-        let jokeSetup = document.querySelector(".jokeSetup");
-        let jokePunchline = document.querySelector(".jokePunchline");
+    jokeSetup.innerHTML = "";
+    jokePunchline.innerHTML = "";
 
-        if (response.data.type == "single") {
-            jokeSetup.innerHTML = "<p>" + response.data.joke + "</p>";
-        }
-        else {
-            jokeSetup.innerHTML = "<p>" + response.data.setup + "</p>";
-            setTimeout(() => { jokePunchline.innerHTML = "<p>" + response.data.delivery + "</p>"; }, 4000);
-        }
-    }
-    catch (error) {
-        console.error(error);
-        jokeSetup.innerHTML = "<p>Error getting joke, fetching another joke...</p>";
-        sendGetRequest();
-    }
-};
+    axios.get('https://v2.jokeapi.dev/joke/Programming')
+        .then(function (response) {
 
-sendGetRequest();
+            console.log(response);
+
+            if (response.data.type == "single") {
+                jokeSetup.innerHTML = "<p>" + response.data.joke + "</p>";
+            }
+            else {
+                jokeSetup.innerHTML = "<p>" + response.data.setup + "</p>";
+                setTimeout(() => { jokePunchline.innerHTML = "<p>" + response.data.delivery + "</p>"; }, 4000);
+            }
+        })
+        .catch(function (error) {
+
+            jokeSetup.innerHTML = "<p>Error getting joke, try again in a few moments</p>";
+            console.log('Error', error.message);
+            console.log(error.config);
+        });
+}
+
+getJoke();
 
 function getNewJoke() {
     let jokeSetup = document.querySelector(".jokeSetup");
@@ -61,10 +49,6 @@ function makeBlue() {
 
 function makeFancy() {
     document.querySelector("body").classList.toggle("change-font");
-}
-
-function doNotRunThis() {
-    document.querySelector(".popup").classList.toggle("visible");
 }
 
 function johnny() {
