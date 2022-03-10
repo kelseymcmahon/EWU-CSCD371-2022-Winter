@@ -19,7 +19,7 @@ Just like when working as a software developer, the web will be your primary sou
 ## Instructions
 
 ### General
-- The project should look like the image below ❌✔
+- The project should look like the image below ✔
 - The project should have an index.html file ✔
   - With an index.js file in a js folder ✔
   - And a site.css file in a css folder (along with other css files) ✔
@@ -53,7 +53,7 @@ Just like when working as a software developer, the web will be your primary sou
 ## Extra Credit
 Do the following:
 
-1. Make the buttons in the menu do something creative ❌✔
+1. Make the buttons in the menu do something creative ✔
 2. Rather than just making the menu appear, have it fade in and slide down. ✔
 3. Have the page jump to 100% width on a smaller screen and 50% on a larger screen with 70% on a regular screen.✔
 
@@ -62,12 +62,12 @@ Do the following:
 
 ## Fundamentals
 - Ensure that:
-  - This is built with raw HTML, CSS, and JavaScript, no external libraries aside from Axios and a font library ❌✔
+  - This is built with raw HTML, CSS, and JavaScript, no external libraries aside from Axios and a font library ✔
   - The index.html file should work when opened from a file explorer ✔
   - Keep all files in appropriate folders ✔
-  - Have warning free HTML, CSS, and JavaScript ❌✔
+  - Have warning free HTML, CSS, and JavaScript ✔
   - Use as little css as possible ✔
-  - No inline CSS ❌✔
+  - No inline CSS ✔
   - Validate HTML with: https://validator.w3.org/nu/#textarea (or similar) ❌✔
   - Validate CSS with: https://jigsaw.w3.org/css-validator/#validate_by_input (or similar) ❌✔
   - No errors when loading the page ✔
