@@ -33,14 +33,6 @@ function getJoke() {
 
 getJoke();
 
-function getNewJoke() {
-    let jokeSetup = document.querySelector(".jokeSetup");
-    let jokePunchline = document.querySelector(".jokePunchline");
-    jokeSetup.innerHTML = "";
-    jokePunchline.innerHTML = "";
-    sendGetRequest();
-}
-
 function makeBlue() {
     document.querySelector("body").classList.toggle("make-blue");
     document.querySelector(".nav-bar").classList.toggle("make-blue");
