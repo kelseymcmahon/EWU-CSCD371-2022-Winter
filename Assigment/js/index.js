@@ -10,7 +10,7 @@ function getJoke() {
     jokeSetup.innerHTML = "";
     jokePunchline.innerHTML = "";
 
-    axios.get('https://v2.jokeapi.dev/joke/Programming')
+    axios.get("https://v2.jokeapi.dev/joke/Programming")
         .then(function (response) {
 
             console.log(response);
@@ -29,9 +29,9 @@ function getJoke() {
             console.log('Error', error.message);
             console.log(error.config);
         });
-}
 
-getJoke();
+    getJoke();
+}
 
 function getNewJoke() {
     let jokeSetup = document.querySelector(".jokeSetup");
