@@ -42,7 +42,7 @@ Previously Assigned
 5. Implement **AND test** `public Task<int> RunLongRunningAsync(ProcessStartInfo startInfo, Action<string?>? progressOutput, Action<string?>? progressError, CancellationToken token)` using `Task.Factory.StartNew()` and invoking `RunProcessInternal` with a `TaskCreation` value of `TaskCreationOptions.LongRunning` and a `TaskScheduler` value of `TaskScheduler.Current`.
    NOTE: This method does **NOT** use `Task.Run`.
    
-   Should take only 3 parameters, follow what was given in the program and not here. 
+   EDIT: Should take only 3 parameters, follow what was given in the program and not here. 
 
 ## Extra Credit
 
