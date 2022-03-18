@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Assignment.Tests;
@@ -68,34 +69,55 @@ public class PingProcessTests
     }
 
     [TestMethod]
-    public void RunAsync_UsingTaskReturn_Success()
+    public void RunAsync_UsingTaskReturn_Success() // 2.1
     {
         // Do NOT use async/await in this test.
 
         PingResult result = default;
         Task<PingResult> task = Sut.RunAsync("localhost");
-        result = task.Result;   
+        result = task.Result;
         AssertValidPingOutput(result);
     }
 
     [TestMethod]
-#pragma warning disable CS1998 // Remove this
-    async public Task RunAsync_UsingTpl_Success()
+    async public Task RunAsync_UsingTpl_Success() // 2.2
     {
         // DO use async/await in this test.
         PingResult result = default;
 
-        // Test Sut.RunAsync("localhost");
-        AssertValidPingOutput(result);
-    }
-#pragma warning restore CS1998 // Remove this
+        // Test
+        Task<PingResult> task = Sut.RunAsync("localhost");
+        await task;
+        result = task.Result;
 
+        AssertValidPingOutput(result);
+        
+    }
+
+    /*
+     * Add support for an optional cancellation token to the PingProcess.RunAsync() signature. ✔ 
+     * Inside the PingProcess.RunAsync() invoke the token's ThrowIfCancellationRequested() method so an exception is thrown. ✔ 
+     * Test that, when cancelled from the test method, the exception thrown is an AggregateException ✔ 
+     * with a TaskCanceledException inner exception ❌✔ 
+     * using the test methods RunAsync_UsingTplWithCancellation_CatchAggregateExceptionWrapping ❌✔
+     * and RunAsync_UsingTplWithCancellation_CatchAggregateExceptionWrappingTaskCanceledException ❌✔ 
+     * respectively.
+     */
 
     [TestMethod]
     [ExpectedException(typeof(AggregateException))]
     public void RunAsync_UsingTplWithCancellation_CatchAggregateExceptionWrapping()
     {
+        PingResult result = default;
+        CancellationTokenSource cTSource = new();
+        // Test
+        Task<PingResult> task = Sut.RunAsync("localhost", cTSource.Token);
         
+        cTSource.Cancel();
+        result = task.Result;
+        
+        
+        //Assert.ThrowsException<AggregateException>();
     }
 
     [TestMethod]
