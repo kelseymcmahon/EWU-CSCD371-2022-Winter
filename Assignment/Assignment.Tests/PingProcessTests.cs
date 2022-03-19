@@ -98,15 +98,35 @@ public class PingProcessTests
      * Add support for an optional cancellation token to the PingProcess.RunAsync() signature. ✔ 
      * Inside the PingProcess.RunAsync() invoke the token's ThrowIfCancellationRequested() method so an exception is thrown. ✔ 
      * Test that, when cancelled from the test method, the exception thrown is an AggregateException ✔ 
-     * with a TaskCanceledException inner exception ❌✔ 
+     * with a TaskCanceledException inner exception ✔ 
      * using the test methods RunAsync_UsingTplWithCancellation_CatchAggregateExceptionWrapping ❌✔
      * and RunAsync_UsingTplWithCancellation_CatchAggregateExceptionWrappingTaskCanceledException ❌✔ 
      * respectively.
      */
 
     [TestMethod]
-    //[ExpectedException(typeof(AggregateException))]
+    [ExpectedException(typeof(AggregateException))]
     public void RunAsync_UsingTplWithCancellation_CatchAggregateExceptionWrapping()
+    {
+        
+            PingResult result = default;
+
+            CancellationTokenSource CT_Source = new();
+            CancellationToken ct = CT_Source.Token;
+
+            CT_Source.Cancel();
+
+            Task<PingResult> task = Sut.RunAsync("localhost", ct);
+            result = task.Result;
+      
+            //Assert.IsTrue(e.Flatten().InnerException is TaskCanceledException);
+        
+        
+    }
+
+    [TestMethod]
+    //[ExpectedException(typeof(TaskCanceledException))]
+    public void RunAsync_UsingTplWithCancellation_CatchAggregateExceptionWrappingTaskCanceledException()
     {
         try
         {
@@ -119,18 +139,11 @@ public class PingProcessTests
 
             Task<PingResult> task = Sut.RunAsync("localhost", ct);
             result = task.Result;
-        } catch (AggregateException e)
+        }
+        catch (AggregateException e)
         {
             Assert.IsTrue(e.Flatten().InnerException is TaskCanceledException);
         }
-        
-    }
-
-    [TestMethod]
-    [ExpectedException(typeof(TaskCanceledException))]
-    public void RunAsync_UsingTplWithCancellation_CatchAggregateExceptionWrappingTaskCanceledException()
-    {
-        // Use exception.Flatten()
     }
 
     [TestMethod]
