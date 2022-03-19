@@ -31,7 +31,7 @@ Previously Assigned
    - Do NOT use async/await in this implementation. ✔
 2. Implement `PingProcess`' `async public Task<PingResult> RunAsync(string hostNameOrAddress)` ✔
    - First implement the `public void RunAsync_UsingTaskReturn_Success()` test method to test `PingProcess.RunAsync()` using `"localhost"` **without** using async/await. ✔
-   - Also implement the `async public Task RunAsync_UsingTpl_Success()` test method to test `PingProcess.RunAsync()` using `"localhost"` but this time **DO** using async/await. ❌✔
+   - Also implement the `async public Task RunAsync_UsingTpl_Success()` test method to test `PingProcess.RunAsync()` using `"localhost"` but this time **DO** using async/await. ✔
 3. Add support for an optional cancellation token to the `PingProcess.RunAsync()` signature. ✔
    Inside the `PingProcess.RunAsync()` invoke the token's `ThrowIfCancellationRequested()` method so an exception is thrown. ✔
    Test that, when cancelled from the test method, the exception thrown is an `AggregateException` ✔ with a `TaskCanceledException` inner exception ✔ using the test methods `RunAsync_UsingTplWithCancellation_CatchAggregateExceptionWrapping` ✔and `RunAsync_UsingTplWithCancellation_CatchAggregateExceptionWrappingTaskCanceledException` ✔ respectively.
