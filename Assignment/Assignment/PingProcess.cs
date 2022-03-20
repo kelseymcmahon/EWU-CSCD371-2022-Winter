@@ -44,18 +44,22 @@ public class PingProcess
 
     async public Task<PingResult> RunAsync(params string[] hostNameOrAddresses)
     {
-        StringBuilder? stringBuilder = null;
+        StringBuilder? stringBuilder = new StringBuilder("");
         ParallelQuery<Task<int>>? all = hostNameOrAddresses.AsParallel().Select(async item =>
         {
-            Task<PingResult> task = null!;
-            // ...
+            Task<PingResult> task = Task.Run(() => Run(item));
 
             await task.WaitAsync(default(CancellationToken));
+            stringBuilder?.Append(task.Result.StdOutput);
             return task.Result.ExitCode;
         });
 
         await Task.WhenAll(all);
-        int total = all.Aggregate(0, (total, item) => total + item.Result);
+
+        //Calling the all.Aggregate causes the query above to run a second time
+        //int total = all.Aggregate(0, (total, item) => total + item.Result);
+
+        int total = 0;
         return new PingResult(total, stringBuilder?.ToString());
     }
 

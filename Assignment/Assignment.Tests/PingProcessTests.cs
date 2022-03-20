@@ -154,6 +154,8 @@ public class PingProcessTests
         int expectedLineCount = PingOutputLikeExpression.Split(Environment.NewLine).Length*hostNames.Length;
         PingResult result = await Sut.RunAsync(hostNames);
         int? lineCount = result.StdOutput?.Split(Environment.NewLine).Length;
+        //This is giving us output for 8 ping runs??
+        Console.WriteLine(result.StdOutput);
         Assert.AreEqual(expectedLineCount, lineCount);
     }
 
