@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -77,6 +78,25 @@ public class PingProcessTests
         Task<PingResult> task = Sut.RunAsync("localhost");
         result = task.Result;
         AssertValidPingOutput(result);
+    }
+
+    [TestMethod]
+    public void RunAsync_UsingIProgress_Success() // Extra Credit
+    {
+        PingResult result = default;
+        StringWriter stringWriter = new();
+        Console.SetOut(stringWriter);
+
+        Progress<string?> progress = new();
+
+        progress.ProgressChanged += (object? sender, string? e) => 
+            { Console.WriteLine(e); };
+
+        Task<PingResult> task = Sut.RunAsync("localhost", progress);
+
+        result = task.Result;
+
+        Assert.AreEqual<string?>(result.StdOutput?.Trim(), stringWriter.ToString().Trim());
     }
 
     [TestMethod]
